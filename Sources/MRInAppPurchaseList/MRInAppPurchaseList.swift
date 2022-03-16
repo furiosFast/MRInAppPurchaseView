@@ -70,16 +70,16 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
         
-        let imageView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 27, height: 27))
-        imageView.image = data.icon
-        imageView.contentMode = .scaleAspectFit
-        imageView.borderWidth = 1
-        imageView.cornerRadius = 6
-        imageView.borderColor = .lightGray
-        cell.imageView?.addSubview(imageView)
+        // icon
+        cell.imageView?.image = data.icon
+        cell.imageView?.contentMode = .scaleAspectFit
+        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        cell.imageView?.borderWidth = 1
+        cell.imageView?.cornerRadius = 6
+        cell.imageView?.borderColor = .lightGray
         
+        // text
         cell.textLabel?.text = data.title
-        cell.selectionStyle = .none
         
         // info button
         let inAppInfoButton = UIButton(type: .infoLight)
@@ -102,8 +102,6 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
-        inAppPurchase.sizeToFit()
-        inAppPurchase.width = 95
         
         // accessoryView
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
@@ -111,6 +109,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         stackView.sizeToFit()
         cell.accessoryView = stackView
         
+        cell.selectionStyle = .none
         return cell
     }
     
