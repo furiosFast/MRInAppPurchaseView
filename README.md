@@ -9,4 +9,4 @@
 
 ## License
 
-MRFilteredLocations is released under the MIT license. See [LICENSE](https://github.com/furiosFast/MRInAppPurchaseList/blob/master/LICENSE) for more information.
+MRFilteredLocations is released under the MIT license. See [LICENSE](https://github.com/furiosFast/MRInAppPurchaseList/blob/main/LICENSE) for more information.

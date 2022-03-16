@@ -8,7 +8,7 @@
 import SwifterSwift
 import UIKit
 
-public class InAppData: NSObject {
+open class InAppData: NSObject {
     public final let icon: UIImage
     public final let title: String
     public final let info: String
@@ -25,7 +25,7 @@ public class InAppData: NSObject {
         self.isPurchased = isPurchased
     }
 
-    internal required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         self.icon = UIImage(data: aDecoder.decodeObject(forKey: "icon") as! Data)!
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.info = aDecoder.decodeObject(forKey: "info") as! String
