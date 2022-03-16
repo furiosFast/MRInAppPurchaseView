@@ -22,12 +22,14 @@ import UIKit
 }
 
 open class MRInAppPurchaseList: UITableViewController {
+    open var inAppListView: MRInAppPurchaseList!
     open weak var delegate: MRInAppPurchaseListDelegate?
     
     private var inAppPurchases: [InAppData] = []
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        inAppListView = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
 //        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
     }
@@ -40,14 +42,8 @@ open class MRInAppPurchaseList: UITableViewController {
 //        tableView.backgroundColor = .systemGray6
 //    }
     
-    public init(inAppPurchases: [InAppData]) {
+    open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
         self.inAppPurchases = inAppPurchases
-        super.init(style: .insetGrouped)
-    }
-    
-    @available(*, unavailable)
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
@@ -81,13 +77,13 @@ open class MRInAppPurchaseList: UITableViewController {
         cell.textLabel?.text = data.title
         cell.selectionStyle = .none
         
-        //info button
+        // info button
         let inAppInfoButton = UIButton(type: .infoLight)
         inAppInfoButton.tintColor = .link
         inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
         inAppInfoButton.tag = indexPath.row
         
-        //purchase button
+        // purchase button
         let inAppPurchase = PurchaseButton(frame: .zero)
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
         inAppPurchase.tag = indexPath.row
@@ -104,7 +100,7 @@ open class MRInAppPurchaseList: UITableViewController {
         inAppPurchase.sizeToFit()
         inAppPurchase.width = 95
         
-        //accessoryView
+        // accessoryView
         let stackView = UIStackView()
         stackView.spacing = 16
         stackView.distribution = .equalCentering
