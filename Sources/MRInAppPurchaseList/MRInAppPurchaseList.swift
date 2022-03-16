@@ -70,8 +70,14 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
         
-        cell.imageView?.image = data.icon
-        cell.imageView?.contentMode = .scaleAspectFit
+        let imageView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 27, height: 27))
+        imageView.image = data.icon
+        imageView.contentMode = .scaleAspectFit
+        imageView.borderWidth = 1
+        imageView.cornerRadius = 6
+        imageView.borderColor = .lightGray
+        cell.imageView?.addSubview(imageView)
+        
         cell.textLabel?.text = data.title
         cell.selectionStyle = .none
         
@@ -101,6 +107,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         
         // accessoryView
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
+        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
         stackView.sizeToFit()
         cell.accessoryView = stackView
         
