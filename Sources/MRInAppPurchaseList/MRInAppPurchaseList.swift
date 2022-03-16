@@ -35,6 +35,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isScrollEnabled = false 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         view = tableView
 //        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
@@ -91,7 +92,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppInfoButton.tag = indexPath.row
         
         // purchase button
-        let inAppPurchase = PurchaseButton(frame: .zero)
+        let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: 24))
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
         inAppPurchase.tag = indexPath.row
         if !data.isPurchased {
@@ -104,19 +105,10 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
-        inAppPurchase.sizeToFit()
-        inAppPurchase.width = 95
         
         // accessoryView
-        let stackView = UIStackView()
-        stackView.spacing = 16
-        stackView.distribution = .equalCentering
-        stackView.alignment = .fill
-        stackView.axis = .horizontal
-        stackView.isUserInteractionEnabled = true
-        stackView.addArrangedSubview(inAppInfoButton)
-        stackView.addArrangedSubview(inAppPurchase)
-        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: 24)
+        let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
+        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
         cell.accessoryView = stackView
         
         return cell
