@@ -57,7 +57,7 @@ open class MRInAppPurchaseList: UITableViewController {
     // MARK: - UITableView
     
     override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return loc("settings_INAPPHEADERTEXT")
+        return loc("INAPP_HEADER")
     }
     
     override open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -79,33 +79,37 @@ open class MRInAppPurchaseList: UITableViewController {
         cell.imageView?.image = data.icon
         cell.imageView?.contentMode = .scaleAspectFit
         cell.textLabel?.text = data.title
-        cell.accessoryType = .detailDisclosureButton
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-
-        let inAppButton = PurchaseButton(frame: .zero)
-        inAppButton.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: UIControl.Event.touchUpInside)
-        inAppButton.tag = indexPath.row
+        cell.selectionStyle = .none
+        
+        //info button
+        let inAppInfoButton = UIButton(type: .infoLight)
+        inAppInfoButton.tintColor = .link
+        inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
+        inAppInfoButton.tag = indexPath.row
+        
+        //purchase button
+        let inAppPurchase = PurchaseButton(frame: .zero)
+        inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
+        inAppPurchase.tag = indexPath.row
         if !data.isPurchased {
-            inAppButton.normalColor = UIColor.link
-            inAppButton.isEnabled = true
+            inAppPurchase.normalColor = .link
+            inAppPurchase.isEnabled = true
         } else {
-            inAppButton.normalColor = UIColor.systemGray
-            inAppButton.isEnabled = false
+            inAppPurchase.normalColor = .systemGray
+            inAppPurchase.isEnabled = false
         }
-        inAppButton.confirmationColor = UIColor.systemGreen
-        inAppButton.normalTitle = data.purchaseButtonTitle.uppercased()
-        inAppButton.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
-        inAppButton.sizeToFit()
-        inAppButton.width = 95
-        cell.accessoryView = inAppButton
+        inAppPurchase.confirmationColor = .systemGreen
+        inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
+        inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
+        inAppPurchase.sizeToFit()
+        inAppPurchase.width = 95
+        
+        //accessoryView
+        let stackView = UIStackView.init(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal)
+        stackView.spacing = 16
+        cell.accessoryView = stackView
         
         return cell
-    }
-    
-    override open func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let data = inAppPurchases[indexPath.row]
-        showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
-        delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
     }
     
     // MARK: - UIScrollView
@@ -122,6 +126,12 @@ open class MRInAppPurchaseList: UITableViewController {
     }
     
     // MARK: - IBActions
+    
+    @IBAction func inAppInfoButtonTapped(_ button: UIButton) {
+        let data = inAppPurchases[button.tag]
+        showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
+        delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
+    }
     
     @IBAction func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {

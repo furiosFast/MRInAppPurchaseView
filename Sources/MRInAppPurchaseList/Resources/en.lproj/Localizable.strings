@@ -12,5 +12,5 @@
 //
 
 
-//alert button
 "alert_OKBUTTON" = "OK";
+"INAPP_HEADER" = "In-App purchase";
