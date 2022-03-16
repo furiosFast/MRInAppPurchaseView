@@ -16,7 +16,7 @@ import SwifterSwift
 import UIKit
 
 @objc public protocol MRInAppPurchaseListDelegate: NSObjectProtocol {
-    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData, _ button: PurchaseButton)
+    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData)
     
     @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppData)
 }
@@ -121,7 +121,7 @@ open class MRInAppPurchaseList: UITableViewController {
         }
     }
     
-    // MARK: - IBAction functions
+    // MARK: - IBActions
     
     @IBAction func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
@@ -129,7 +129,7 @@ open class MRInAppPurchaseList: UITableViewController {
                 button.setButtonState(.confirmation, animated: true)
             case .confirmation:
                 button.setButtonState(.progress, animated: true)
-                delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag], button)
+                delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
             case .progress:
                 break
             @unknown default:
