@@ -21,16 +21,22 @@ import UIKit
     @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppData)
 }
 
-open class MRInAppPurchaseList: UITableViewController {
+open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     open var inAppListView: MRInAppPurchaseList!
     open weak var delegate: MRInAppPurchaseListDelegate?
     
+    private var tableView = UITableView()
     private var inAppPurchases: [InAppData] = []
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         inAppListView = self
+        
+        tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
+        self.view = tableView
 //        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
     }
     
@@ -52,23 +58,23 @@ open class MRInAppPurchaseList: UITableViewController {
     
     // MARK: - UITableView
     
-    override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return loc("INAPP_HEADER")
     }
     
-    override open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
     
-    override open func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return inAppPurchases.count
     }
     
-    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
         
@@ -116,7 +122,7 @@ open class MRInAppPurchaseList: UITableViewController {
     
     // MARK: - UIScrollView
 
-    override open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
                 let inAppButton = view as! PurchaseButton
@@ -129,13 +135,13 @@ open class MRInAppPurchaseList: UITableViewController {
     
     // MARK: - IBActions
     
-    @IBAction func inAppInfoButtonTapped(_ button: UIButton) {
+    @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
         let data = inAppPurchases[button.tag]
         showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
     }
     
-    @IBAction func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
+    @IBAction private func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
             case .normal:
                 button.setButtonState(.confirmation, animated: true)
