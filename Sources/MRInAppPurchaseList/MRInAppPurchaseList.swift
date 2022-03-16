@@ -11,15 +11,14 @@
 //  Copyright © 2021 Fast-Devs Project. All rights reserved.
 //
 
+import MRPurchaseButton
 import SwifterSwift
 import UIKit
-import MRPurchaseButton
 
 @objc public protocol MRInAppPurchaseListDelegate: NSObjectProtocol {
-    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData)
+    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData, _ button: PurchaseButton)
     
     @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppData)
-    @objc optional func swipeDownDismiss(controller: MRInAppPurchaseList)
 }
 
 open class MRInAppPurchaseList: UITableViewController {
@@ -103,11 +102,6 @@ open class MRInAppPurchaseList: UITableViewController {
         return cell
     }
     
-//    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        delegate?.didSelectRowAt(tableView: tableView, indexPath: indexPath, filteredLocation: filteredLocation)
-//        delegate?.swipeDownDismiss?(controller: self)
-//    }
-    
     override open func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let data = inAppPurchases[indexPath.row]
         showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
@@ -127,13 +121,19 @@ open class MRInAppPurchaseList: UITableViewController {
         }
     }
     
-    // MARK: - Private functions
+    // MARK: - IBAction functions
     
-//    private func swipeDownDismiss(completion: (() -> Void)? = nil){
-//        delegate?.swipeDownDismiss?(controller: self)
-//    }
-    
-    @IBAction func inAppPurchaseButtonTapped(_ sender: PurchaseButton) {
-        delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[sender.tag])
+    @IBAction func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
+        switch button.buttonState {
+            case .normal:
+                button.setButtonState(.confirmation, animated: true)
+            case .confirmation:
+                button.setButtonState(.progress, animated: true)
+                delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag], button)
+            case .progress:
+                break
+            @unknown default:
+                break
+        }
     }
 }
