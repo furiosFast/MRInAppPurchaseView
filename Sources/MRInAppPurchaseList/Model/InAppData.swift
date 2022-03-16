@@ -16,7 +16,7 @@ open class InAppData: NSObject {
     public final let confirmationPurchaseButtonTitle: String
     public final let isPurchased: Bool
 
-    init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ confirmationPurchaseButtonTitle: String, _ isPurchased: Bool) {
+    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ confirmationPurchaseButtonTitle: String, _ isPurchased: Bool) {
         self.icon = icon
         self.title = title
         self.info = info
