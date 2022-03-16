@@ -85,6 +85,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         
         // info button
         let inAppInfoButton = UIButton(type: .infoLight)
+        inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         inAppInfoButton.tintColor = .link
         inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
         inAppInfoButton.tag = indexPath.row
@@ -115,7 +116,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         stackView.isUserInteractionEnabled = true
         stackView.addArrangedSubview(inAppInfoButton)
         stackView.addArrangedSubview(inAppPurchase)
-        stackView.frame = CGRect(x: 0, y: 0, width: 24, height: 24 + 16 + 95)
+        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: 24)
         cell.accessoryView = stackView
         
         return cell
