@@ -1,0 +1,16 @@
+//
+//  Localizable.strings
+//  MRFilteredLocations
+//
+//  Created by Marco Ricca on 11/09/2021
+//
+//  Created for MRFilteredLocations in 11/09/2021
+//  Using Swift 5.4
+//  Running on macOS 11.5.2
+//
+//  Copyright © 2021 Fast-Devs Project. All rights reserved.
+//
+
+
+//alert button
+"alert_OKBUTTON" = "OK";
