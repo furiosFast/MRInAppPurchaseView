@@ -33,21 +33,12 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppListView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isScrollEnabled = false 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
+        tableView.isScrollEnabled = false
         view = tableView
-//        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
     }
-    
-//    open override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-    
-//    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        tableView.backgroundColor = .systemGray6
-//    }
     
     open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
         self.inAppPurchases = inAppPurchases
@@ -105,18 +96,30 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
+        inAppPurchase.sizeToFit()
+        inAppPurchase.width = 95
         
         // accessoryView
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
-        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
+        stackView.sizeToFit()
         cell.accessoryView = stackView
         
         return cell
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        setNomalStateToPurchaseButtons()
+    }
+    
     // MARK: - UIScrollView
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        setNomalStateToPurchaseButtons()
+    }
+    
+    // MARK: - Private functions
+
+    private func setNomalStateToPurchaseButtons() {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
                 let inAppButton = view as! PurchaseButton
@@ -126,7 +129,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
+
     // MARK: - IBActions
     
     @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
