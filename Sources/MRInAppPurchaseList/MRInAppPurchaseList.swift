@@ -73,11 +73,12 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         // icon
         cell.imageView?.image = data.icon
         cell.imageView?.contentMode = .scaleAspectFit
-        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         cell.imageView?.borderWidth = 1
         cell.imageView?.cornerRadius = 6
         cell.imageView?.borderColor = .lightGray
-        
+        cell.imageView?.width = 24
+        cell.imageView?.height = 24
+
         // text
         cell.textLabel?.text = data.title
         
@@ -107,7 +108,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
         stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
         stackView.sizeToFit()
-        cell.accessoryView = stackView
+        cell.accessoryView = inAppPurchase
         
         cell.selectionStyle = .none
         return cell
