@@ -32,11 +32,11 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         inAppListView = self
         
-        tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
-        self.view = tableView
+        view = tableView
 //        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
     }
     
@@ -115,6 +115,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         stackView.isUserInteractionEnabled = true
         stackView.addArrangedSubview(inAppInfoButton)
         stackView.addArrangedSubview(inAppPurchase)
+        cell.accessoryType = .checkmark
         cell.accessoryView = stackView
         
         return cell
