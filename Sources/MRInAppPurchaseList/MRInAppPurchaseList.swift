@@ -105,8 +105,14 @@ open class MRInAppPurchaseList: UITableViewController {
         inAppPurchase.width = 95
         
         //accessoryView
-        let stackView = UIStackView.init(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal)
+        let stackView = UIStackView()
         stackView.spacing = 16
+        stackView.distribution = .equalCentering
+        stackView.alignment = .fill
+        stackView.axis = .horizontal
+        stackView.isUserInteractionEnabled = true
+        stackView.addArrangedSubview(inAppInfoButton)
+        stackView.addArrangedSubview(inAppPurchase)
         cell.accessoryView = stackView
         
         return cell
