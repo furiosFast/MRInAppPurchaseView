@@ -105,10 +105,10 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
         
         // accessoryView
-        let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
+        let stackView = UIStackView(arrangedSubviews: [inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .equalSpacing)
         stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
         stackView.sizeToFit()
-        cell.accessoryView = inAppPurchase
+        cell.accessoryView = stackView
         
         cell.selectionStyle = .none
         return cell
