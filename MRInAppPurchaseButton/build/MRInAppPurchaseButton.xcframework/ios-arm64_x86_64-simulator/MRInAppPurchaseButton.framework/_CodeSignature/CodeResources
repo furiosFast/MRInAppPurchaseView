@@ -4,9 +4,33 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/BorderedButton.h</key>
+		<data>
+		nZX5MQ9ya5qtnhJe3fwUdgATEKc=
+		</data>
+		<key>Headers/BorderedView.h</key>
+		<data>
+		DfOPnH21PZfNstbZM2XozWhqZiY=
+		</data>
+		<key>Headers/MRInAppPurchaseButton.h</key>
+		<data>
+		cDmamO6rH6cibMradbEfASXh8Mc=
+		</data>
+		<key>Headers/PurchaseActivityIndicatorView.h</key>
+		<data>
+		Q4iGXyulqmVj/LYPIts1tPKMEQY=
+		</data>
+		<key>Headers/PurchaseButton.h</key>
+		<data>
+		mOcSLr072utYyum9vuzJznMT3zI=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		neOqleHSqWvmB2VJDtUbUKcoUsU=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		lUN6aiTYOdcnONU96MyVgWQ35og=
 		</data>
 		<key>createXCFramework.sh</key>
 		<data>
@@ -15,6 +39,48 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/BorderedButton.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nrIExtewZs2BzTKVQiFkxWUYZeRvcXgbua86m8eRvZ0=
+			</data>
+		</dict>
+		<key>Headers/BorderedView.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ssvg21IS5A2p4HIOmYKRTPzNI1cD2PAFUUIz/nXtKM4=
+			</data>
+		</dict>
+		<key>Headers/MRInAppPurchaseButton.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			B4ZZEjwll5TDF5TdTjNUegLYVI+a/YgF8UusxnMfZ5A=
+			</data>
+		</dict>
+		<key>Headers/PurchaseActivityIndicatorView.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			T6MVpLMNvptTvF41TTshlIh/LrAdn+ahOUaS+cst9oo=
+			</data>
+		</dict>
+		<key>Headers/PurchaseButton.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			J/y+Ab9qsNgam2hLfYZxBgB9fmsZQBemCW0QJXZE66o=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rtC+DxEc+WCESYgChfmzjN7vo0Z1xiVihhPeo6W+6oc=
+			</data>
+		</dict>
 		<key>createXCFramework.sh</key>
 		<dict>
 			<key>hash2</key>

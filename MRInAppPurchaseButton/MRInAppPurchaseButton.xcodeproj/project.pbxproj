@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9265B8127E2CA83000C39D2 /* MRPurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */; };
-		A9265B8227E2CA83000C39D2 /* BorderedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7827E2CA83000C39D2 /* BorderedButton.h */; };
+		A9265B8127E2CA83000C39D2 /* MRInAppPurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7627E2CA83000C39D2 /* MRInAppPurchaseButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9265B8227E2CA83000C39D2 /* BorderedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7827E2CA83000C39D2 /* BorderedButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9265B8327E2CA83000C39D2 /* BorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7927E2CA83000C39D2 /* BorderedView.m */; };
 		A9265B8427E2CA83000C39D2 /* BorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7A27E2CA83000C39D2 /* BorderedButton.m */; };
-		A9265B8527E2CA83000C39D2 /* BorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7B27E2CA83000C39D2 /* BorderedView.h */; };
-		A9265B8627E2CA84000C39D2 /* PurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7D27E2CA83000C39D2 /* PurchaseButton.h */; };
+		A9265B8527E2CA83000C39D2 /* BorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7B27E2CA83000C39D2 /* BorderedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9265B8627E2CA84000C39D2 /* PurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7D27E2CA83000C39D2 /* PurchaseButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9265B8727E2CA84000C39D2 /* PurchaseActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7E27E2CA83000C39D2 /* PurchaseActivityIndicatorView.m */; };
 		A9265B8827E2CA84000C39D2 /* PurchaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7F27E2CA83000C39D2 /* PurchaseButton.m */; };
-		A9265B8927E2CA84000C39D2 /* PurchaseActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B8027E2CA83000C39D2 /* PurchaseActivityIndicatorView.h */; };
+		A9265B8927E2CA84000C39D2 /* PurchaseActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B8027E2CA83000C39D2 /* PurchaseActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9D1560027E260E1003E2777 /* createXCFramework.sh in Resources */ = {isa = PBXBuildFile; fileRef = A9D155FF27E260E1003E2777 /* createXCFramework.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRPurchaseButton.h; sourceTree = "<group>"; };
+		A9265B7627E2CA83000C39D2 /* MRInAppPurchaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRInAppPurchaseButton.h; sourceTree = "<group>"; };
 		A9265B7827E2CA83000C39D2 /* BorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedButton.h; sourceTree = "<group>"; };
 		A9265B7927E2CA83000C39D2 /* BorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedView.m; sourceTree = "<group>"; };
 		A9265B7A27E2CA83000C39D2 /* BorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedButton.m; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		A9265B7527E2CA83000C39D2 /* MRInAppPurchaseButton */ = {
 			isa = PBXGroup;
 			children = (
-				A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */,
+				A9265B7627E2CA83000C39D2 /* MRInAppPurchaseButton.h */,
 				A9265B7727E2CA83000C39D2 /* BorderedButton */,
 				A9265B7C27E2CA83000C39D2 /* PurchaseButton */,
 			);
@@ -100,10 +100,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9265B8127E2CA83000C39D2 /* MRInAppPurchaseButton.h in Headers */,
 				A9265B8527E2CA83000C39D2 /* BorderedView.h in Headers */,
 				A9265B8927E2CA84000C39D2 /* PurchaseActivityIndicatorView.h in Headers */,
 				A9265B8627E2CA84000C39D2 /* PurchaseButton.h in Headers */,
-				A9265B8127E2CA83000C39D2 /* MRPurchaseButton.h in Headers */,
 				A9265B8227E2CA83000C39D2 /* BorderedButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

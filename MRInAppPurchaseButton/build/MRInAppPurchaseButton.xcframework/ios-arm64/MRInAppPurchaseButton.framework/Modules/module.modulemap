@@ -1,0 +1,6 @@
+framework module MRInAppPurchaseButton {
+  umbrella header "MRInAppPurchaseButton.h"
+
+  export *
+  module * { export * }
+}
