@@ -34,7 +34,6 @@ open class InAppData: NSObject, NSCoding {
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.info = aDecoder.decodeObject(forKey: "info") as! String
         self.purchaseButtonTitle = aDecoder.decodeObject(forKey: "purchaseButtonTitle") as! String
-        self.confirmationPurchaseButtonTitle = aDecoder.decodeObject(forKey: "confirmationPurchaseButtonTitle") as! String
         self.isPurchasedDisable = aDecoder.decodeObject(forKey: "isPurchasedDisable") as! Bool
     }
 
@@ -43,7 +42,6 @@ open class InAppData: NSObject, NSCoding {
         encoder.encode(self.title, forKey: "title")
         encoder.encode(self.info, forKey: "info")
         encoder.encode(self.purchaseButtonTitle, forKey: "purchaseButtonTitle")
-        encoder.encode(self.confirmationPurchaseButtonTitle, forKey: "confirmationPurchaseButtonTitle")
         encoder.encode(self.isPurchasedDisable, forKey: "isPurchasedDisable")
     }
 }
