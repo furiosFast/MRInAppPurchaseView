@@ -12,4 +12,5 @@
 //
 
 
-"alert_OKBUTTON" = "OK";
+"OKBUTTON" = "OK";
+"CONFIRM" = "Confirm";

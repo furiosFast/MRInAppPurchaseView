@@ -29,7 +29,7 @@ public func colorFromBundle(named: String) -> UIColor? {
 
 /// Short function for localize string
 /// - Parameter localizedKey: string key to localize
-func loc(_ localizedKey: String) -> String {
+private func loc(_ localizedKey: String) -> String {
     return NSLocalizedString(localizedKey, bundle: .module, comment: "")
 }
 

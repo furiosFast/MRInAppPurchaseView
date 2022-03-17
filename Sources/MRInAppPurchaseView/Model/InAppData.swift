@@ -19,15 +19,13 @@ open class InAppData: NSObject, NSCoding {
     public final let title: String
     public final let info: String
     public final let purchaseButtonTitle: String
-    public final let confirmationPurchaseButtonTitle: String
     public final let isPurchasedDisable: Bool
 
-    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ confirmationPurchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
+    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.icon = icon
         self.title = title
         self.info = info
         self.purchaseButtonTitle = purchaseButtonTitle
-        self.confirmationPurchaseButtonTitle = confirmationPurchaseButtonTitle
         self.isPurchasedDisable = isPurchasedDisable
     }
 

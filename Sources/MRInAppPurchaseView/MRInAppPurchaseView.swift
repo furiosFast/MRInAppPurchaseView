@@ -103,7 +103,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         }
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
-        inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
+        inAppPurchase.confirmationTitle = locFromBundle("CONFIRM").uppercased()
         
         // accessoryView
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
@@ -145,7 +145,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         setNomalStateToPurchaseButtons()
         
         let data = inAppPurchases[button.tag]
-        showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
+        showAlert(title: data.title, message: data.info, buttonTitles: [locFromBundle("OKBUTTON")], highlightedButtonIndex: 0)
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
     }
     
