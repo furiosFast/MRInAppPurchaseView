@@ -20,15 +20,15 @@ open class InAppData: NSObject, NSCoding {
     public final let info: String
     public final let purchaseButtonTitle: String
     public final let confirmationPurchaseButtonTitle: String
-    public final let isPurchased: Bool
+    public final let isPurchasedDisable: Bool
 
-    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ confirmationPurchaseButtonTitle: String, _ isPurchased: Bool) {
+    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ confirmationPurchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.icon = icon
         self.title = title
         self.info = info
         self.purchaseButtonTitle = purchaseButtonTitle
         self.confirmationPurchaseButtonTitle = confirmationPurchaseButtonTitle
-        self.isPurchased = isPurchased
+        self.isPurchasedDisable = isPurchasedDisable
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -37,7 +37,7 @@ open class InAppData: NSObject, NSCoding {
         self.info = aDecoder.decodeObject(forKey: "info") as! String
         self.purchaseButtonTitle = aDecoder.decodeObject(forKey: "purchaseButtonTitle") as! String
         self.confirmationPurchaseButtonTitle = aDecoder.decodeObject(forKey: "confirmationPurchaseButtonTitle") as! String
-        self.isPurchased = aDecoder.decodeObject(forKey: "isPurchased") as! Bool
+        self.isPurchasedDisable = aDecoder.decodeObject(forKey: "isPurchasedDisable") as! Bool
     }
 
     public func encode(with encoder: NSCoder) {
@@ -46,6 +46,6 @@ open class InAppData: NSObject, NSCoding {
         encoder.encode(self.info, forKey: "info")
         encoder.encode(self.purchaseButtonTitle, forKey: "purchaseButtonTitle")
         encoder.encode(self.confirmationPurchaseButtonTitle, forKey: "confirmationPurchaseButtonTitle")
-        encoder.encode(self.isPurchased, forKey: "isPurchased")
+        encoder.encode(self.isPurchasedDisable, forKey: "isPurchasedDisable")
     }
 }

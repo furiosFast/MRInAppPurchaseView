@@ -21,7 +21,7 @@ import UIKit
 }
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    open var inAppListView: MRInAppPurchaseView!
+    open var inAppView: MRInAppPurchaseView!
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
@@ -29,7 +29,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        inAppListView = self
+        inAppView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
@@ -46,13 +46,13 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     deinit {
-        debugPrint("MRInAppPurchaseList DEINITIALIZATED!!!!")
+        debugPrint("MRInAppPurchaseView DEINITIALIZATED!!!!")
     }
     
     // MARK: - UITableView
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return loc("INAPP_HEADER")
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -94,7 +94,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: 24))
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
         inAppPurchase.tag = indexPath.row
-        if !data.isPurchased {
+        if !data.isPurchasedDisable {
             inAppPurchase.normalColor = .link
             inAppPurchase.isEnabled = true
         } else {
@@ -142,6 +142,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - IBActions
     
     @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
+        setNomalStateToPurchaseButtons()
+        
         let data = inAppPurchases[button.tag]
         showAlert(title: data.title, message: data.info, buttonTitles: [loc("alert_OKBUTTON")], highlightedButtonIndex: 0)
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
