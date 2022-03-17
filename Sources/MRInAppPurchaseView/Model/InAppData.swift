@@ -14,7 +14,7 @@
 import SwifterSwift
 import UIKit
 
-open class InAppData: NSObject {
+open class InAppData: NSObject, NSCoding {
     public final let icon: UIImage
     public final let title: String
     public final let info: String
@@ -40,7 +40,7 @@ open class InAppData: NSObject {
         self.isPurchased = aDecoder.decodeObject(forKey: "isPurchased") as! Bool
     }
 
-    func encode(with encoder: NSCoder) {
+    public func encode(with encoder: NSCoder) {
         encoder.encode(self.icon.compressedData(), forKey: "icon")
         encoder.encode(self.title, forKey: "title")
         encoder.encode(self.info, forKey: "info")

@@ -33,6 +33,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
+        tableView.tintColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         tableView.delegate = self
         tableView.dataSource = self
@@ -111,6 +112,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         
         cell.selectionStyle = .none
         cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
+        cell.tintColor = .white
         return cell
     }
     
