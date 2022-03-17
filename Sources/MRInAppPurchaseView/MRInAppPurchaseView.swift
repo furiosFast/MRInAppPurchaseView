@@ -11,7 +11,7 @@
 //  Copyright © 2021 Fast-Devs Project. All rights reserved.
 //
 
-import MRPurchaseButton
+import MRInAppPurchaseButton
 import SwifterSwift
 import UIKit
 

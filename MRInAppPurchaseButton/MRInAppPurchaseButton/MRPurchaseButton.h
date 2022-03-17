@@ -1,6 +1,6 @@
 //
-//  MRPurchaseButton.h.h
-//  MRPurchaseButton.h
+//  MRInAppPurchaseButton.h
+//  MRInAppPurchaseButton.h
 //
 //  Created by Marco Ricca on 16/03/22.
 //
@@ -11,12 +11,12 @@
 #import "BorderedButton.h"
 #import "BorderedView.h"
 
-//! Project version number for MRPurchaseButton.h.
-FOUNDATION_EXPORT double MRPurchaseButtonVersionNumber;
+//! Project version number for MRInAppPurchaseButton.h.
+FOUNDATION_EXPORT double MRInAppPurchaseButtonVersionNumber;
 
-//! Project version string for MRPurchaseButton.h.
-FOUNDATION_EXPORT const unsigned char MRPurchaseButtonVersionString[];
+//! Project version string for MRInAppPurchaseButton.h.
+FOUNDATION_EXPORT const unsigned char MRInAppPurchaseButtonVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <MRPurchaseButton/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <MRInAppPurchaseButton/PublicHeader.h>
 
 
