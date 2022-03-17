@@ -1,10 +1,10 @@
 //
-//  MRFilteredLocations.swift
-//  MRFilteredLocations
+//  MRInAppPurchaseView.swift
+//  MRInAppPurchaseView
 //
 //  Created by Marco Ricca on 11/09/2021
 //
-//  Created for MRFilteredLocations in 11/09/2021
+//  Created for MRInAppPurchaseView in 11/09/2021
 //  Using Swift 5.4
 //  Running on macOS 11.5.2
 //
@@ -15,15 +15,14 @@ import MRPurchaseButton
 import SwifterSwift
 import UIKit
 
-@objc public protocol MRInAppPurchaseListDelegate: NSObjectProtocol {
+@objc public protocol MRInAppPurchaseViewDelegate: NSObjectProtocol {
     @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData)
-    
     @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppData)
 }
 
-open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    open var inAppListView: MRInAppPurchaseList!
-    open weak var delegate: MRInAppPurchaseListDelegate?
+open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    open var inAppListView: MRInAppPurchaseView!
+    open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
     private var inAppPurchases: [InAppData] = []
@@ -33,6 +32,7 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppListView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         tableView.delegate = self
         tableView.dataSource = self
@@ -105,13 +105,12 @@ open class MRInAppPurchaseList: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationTitle = data.confirmationPurchaseButtonTitle.uppercased()
         
         // accessoryView
-            //fill
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
         stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
-        stackView.sizeToFit()
         cell.accessoryView = stackView
         
         cell.selectionStyle = .none
+        cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
         return cell
     }
     

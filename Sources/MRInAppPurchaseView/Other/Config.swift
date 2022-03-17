@@ -1,14 +1,14 @@
 //
 //  Config.swift
-//  Device Monitor
+//  MRInAppPurchaseView
 //
-//  Created by Marco Ricca on 08/04/2019
+//  Created by Marco Ricca on 17/03/2022
 //
-//  Created for Device Monitor in 08/04/2019
-//  Using Swift 5.0
-//  Running on macOS 10.14
+//  Created for MRInAppPurchaseView in 17/03/2022
+//  Using Swift 5.4
+//  Running on macOS 11.5.2
 //
-//  Copyright © 2019 Marco. All rights reserved.
+//  Copyright © 2021 Fast-Devs Project. All rights reserved.
 //
 
 import UIKit
@@ -19,6 +19,12 @@ import UIKit
 /// - Parameter localizedKey: string key to localize
 public func locFromBundle(_ localizedKey: String) -> String {
     return loc(localizedKey)
+}
+
+/// Public function for get an image from this Bundle
+/// - Parameter named: image name
+public func colorFromBundle(named: String) -> UIColor? {
+    return UIColor(named: named, in: .module, compatibleWith: nil)
 }
 
 /// Short function for localize string

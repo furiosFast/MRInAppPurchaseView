@@ -1,8 +1,14 @@
 //
-//  File.swift
+//  Config.swift
+//  MRInAppPurchaseView
 //
+//  Created by Marco Ricca on 17/03/2022
 //
-//  Created by Marco Ricca on 16/03/22.
+//  Created for MRInAppPurchaseView in 17/03/2022
+//  Using Swift 5.4
+//  Running on macOS 11.5.2
+//
+//  Copyright © 2021 Fast-Devs Project. All rights reserved.
 //
 
 import SwifterSwift

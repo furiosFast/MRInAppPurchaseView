@@ -4,19 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "MRInAppPurchaseList",
+    name: "MRInAppPurchaseView",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
     ],
     products: [
-        .library(name: "MRInAppPurchaseList", targets: ["MRInAppPurchaseList"]),
+        .library(name: "MRInAppPurchaseView", targets: ["MRInAppPurchaseView"]),
     ],
     dependencies: [
         .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "5.1.0"),
     ],
     targets: [
-        .target(name: "MRInAppPurchaseList", dependencies: [
+        .target(name: "MRInAppPurchaseView", dependencies: [
             .byName(name: "MRPurchaseButton"),
             .product(name: "SwifterSwift", package: "SwifterSwift"),
         ], resources: [.process("Resources")]),
