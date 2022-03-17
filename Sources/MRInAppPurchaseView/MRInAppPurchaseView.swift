@@ -107,7 +107,12 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         
         // accessoryView
         let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
-        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
+        if data.info.isEmpty {
+            stackView.frame = CGRect(x: 0, y: 0, width: 95, height: cell.height)
+            stackView.removeArrangedSubview(inAppInfoButton)
+        } else {
+            stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
+        }
         cell.accessoryView = stackView
         
         cell.selectionStyle = .none
