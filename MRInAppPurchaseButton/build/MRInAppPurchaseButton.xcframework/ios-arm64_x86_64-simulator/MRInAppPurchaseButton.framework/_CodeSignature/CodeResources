@@ -4,88 +4,22 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/BorderedButton.h</key>
-		<data>
-		AYl6FV6eCQTbUOkpMUoygfyAAxA=
-		</data>
-		<key>Headers/BorderedView.h</key>
-		<data>
-		WpHblf1+MWmaIiubPZs4E6r3gqE=
-		</data>
-		<key>Headers/MRPurchaseButton.h</key>
-		<data>
-		R2O1UHp9CRJbD35n8SrQ5Eee9fQ=
-		</data>
-		<key>Headers/PurchaseActivityIndicatorView.h</key>
-		<data>
-		fVOI3ofe4x8OaM+Jsl/Ru2gka3k=
-		</data>
-		<key>Headers/PurchaseButton.h</key>
-		<data>
-		g8tHJYEfmFSCS8L/aDBOrMkNuyg=
-		</data>
 		<key>Info.plist</key>
 		<data>
-		mCIN31tVUcEWK2xFGxdTKCv8BPQ=
-		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		lUprdkEUo122hYBj7PH0Wytq4TI=
+		neOqleHSqWvmB2VJDtUbUKcoUsU=
 		</data>
 		<key>createXCFramework.sh</key>
 		<data>
-		2uCcsj+op1nKQ01l1SWaEXoDFQc=
+		OKebkUYjbAtQ7/mpYbKdhf9j6WA=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/BorderedButton.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			yK+iaJo4WTEcv5wYh8V9KG3y7yRcrHIybIqu0J4s6xg=
-			</data>
-		</dict>
-		<key>Headers/BorderedView.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4YdnjwnWG9WrtuTgPPKXfhOcjiX8GL37zOk4I5UyHo4=
-			</data>
-		</dict>
-		<key>Headers/MRPurchaseButton.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			D3J9MZYVZ//NFWuppyuLTrLWMirIkI3bl0ZHyuHg9/I=
-			</data>
-		</dict>
-		<key>Headers/PurchaseActivityIndicatorView.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			v5R9YpplLBZe8qTtDWkUv12h5IisOg/4gl3Zg/Dc8Kk=
-			</data>
-		</dict>
-		<key>Headers/PurchaseButton.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rUqhOAcfyphLtjIrrtFJahe8+PBd66P0YNYTFrCuaGI=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fJnkcXQ8joFv58PFHMhMw+q0/9Q998gcL2gl3Y/jwD8=
-			</data>
-		</dict>
 		<key>createXCFramework.sh</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			THFNLbl72APPsah6kzXePkWcjY4zDE47DpFOvt4iAT0=
+			nAWl0Yqg0uqMx/JZDgGAkxihiGIy8pVYz/Mwy/5v550=
 			</data>
 		</dict>
 	</dict>

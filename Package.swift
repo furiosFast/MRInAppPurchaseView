@@ -17,10 +17,10 @@ let package = Package(
     ],
     targets: [
         .target(name: "MRInAppPurchaseView", dependencies: [
-            .byName(name: "MRPurchaseButton"),
+            .byName(name: "MRInAppPurchaseButton"),
             .product(name: "SwifterSwift", package: "SwifterSwift"),
         ], resources: [.process("Resources")]),
-        .binaryTarget(name: "MRPurchaseButton", path: "MRPurchaseButton/build/MRPurchaseButton.xcframework"),
+        .binaryTarget(name: "MRInAppPurchaseButton", path: "MRInAppPurchaseButton/build/MRInAppPurchaseButton.xcframework"),
     ],
     swiftLanguageVersions: [
         .v5

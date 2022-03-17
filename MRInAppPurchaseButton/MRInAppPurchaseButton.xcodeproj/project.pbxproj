@@ -7,33 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9726A9927E253960047E121 /* MRPurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726A9827E253960047E121 /* MRPurchaseButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9726AA627E253B50047E121 /* BorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726AA227E253B50047E121 /* BorderedButton.m */; };
-		A9726AA727E253B50047E121 /* BorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726AA327E253B50047E121 /* BorderedView.m */; };
-		A9726AAF27E253BA0047E121 /* PurchaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726AAB27E253BA0047E121 /* PurchaseButton.m */; };
-		A9726AB027E253BA0047E121 /* PurchaseActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726AAC27E253BA0047E121 /* PurchaseActivityIndicatorView.m */; };
-		A9726AB127E253FD0047E121 /* BorderedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726AA027E253B50047E121 /* BorderedButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9726AB227E253FD0047E121 /* BorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726AA127E253B50047E121 /* BorderedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9726AB327E254000047E121 /* PurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726AA927E253BA0047E121 /* PurchaseButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9726AB427E254030047E121 /* PurchaseActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726AAA27E253BA0047E121 /* PurchaseActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9265B8127E2CA83000C39D2 /* MRPurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */; };
+		A9265B8227E2CA83000C39D2 /* BorderedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7827E2CA83000C39D2 /* BorderedButton.h */; };
+		A9265B8327E2CA83000C39D2 /* BorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7927E2CA83000C39D2 /* BorderedView.m */; };
+		A9265B8427E2CA83000C39D2 /* BorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7A27E2CA83000C39D2 /* BorderedButton.m */; };
+		A9265B8527E2CA83000C39D2 /* BorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7B27E2CA83000C39D2 /* BorderedView.h */; };
+		A9265B8627E2CA84000C39D2 /* PurchaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B7D27E2CA83000C39D2 /* PurchaseButton.h */; };
+		A9265B8727E2CA84000C39D2 /* PurchaseActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7E27E2CA83000C39D2 /* PurchaseActivityIndicatorView.m */; };
+		A9265B8827E2CA84000C39D2 /* PurchaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9265B7F27E2CA83000C39D2 /* PurchaseButton.m */; };
+		A9265B8927E2CA84000C39D2 /* PurchaseActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9265B8027E2CA83000C39D2 /* PurchaseActivityIndicatorView.h */; };
 		A9D1560027E260E1003E2777 /* createXCFramework.sh in Resources */ = {isa = PBXBuildFile; fileRef = A9D155FF27E260E1003E2777 /* createXCFramework.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A9726A9527E253960047E121 /* MRPurchaseButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MRPurchaseButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9726A9827E253960047E121 /* MRPurchaseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRPurchaseButton.h; sourceTree = "<group>"; };
-		A9726AA027E253B50047E121 /* BorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedButton.h; sourceTree = "<group>"; };
-		A9726AA127E253B50047E121 /* BorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedView.h; sourceTree = "<group>"; };
-		A9726AA227E253B50047E121 /* BorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedButton.m; sourceTree = "<group>"; };
-		A9726AA327E253B50047E121 /* BorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedView.m; sourceTree = "<group>"; };
-		A9726AA927E253BA0047E121 /* PurchaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseButton.h; sourceTree = "<group>"; };
-		A9726AAA27E253BA0047E121 /* PurchaseActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseActivityIndicatorView.h; sourceTree = "<group>"; };
-		A9726AAB27E253BA0047E121 /* PurchaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseButton.m; sourceTree = "<group>"; };
-		A9726AAC27E253BA0047E121 /* PurchaseActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseActivityIndicatorView.m; sourceTree = "<group>"; };
+		A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRPurchaseButton.h; sourceTree = "<group>"; };
+		A9265B7827E2CA83000C39D2 /* BorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedButton.h; sourceTree = "<group>"; };
+		A9265B7927E2CA83000C39D2 /* BorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedView.m; sourceTree = "<group>"; };
+		A9265B7A27E2CA83000C39D2 /* BorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedButton.m; sourceTree = "<group>"; };
+		A9265B7B27E2CA83000C39D2 /* BorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedView.h; sourceTree = "<group>"; };
+		A9265B7D27E2CA83000C39D2 /* PurchaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseButton.h; sourceTree = "<group>"; };
+		A9265B7E27E2CA83000C39D2 /* PurchaseActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseActivityIndicatorView.m; sourceTree = "<group>"; };
+		A9265B7F27E2CA83000C39D2 /* PurchaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseButton.m; sourceTree = "<group>"; };
+		A9265B8027E2CA83000C39D2 /* PurchaseActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseActivityIndicatorView.h; sourceTree = "<group>"; };
+		A9726A9527E253960047E121 /* MRInAppPurchaseButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MRInAppPurchaseButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D155FF27E260E1003E2777 /* createXCFramework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createXCFramework.sh; sourceTree = "<group>"; };
-		A9D1560227E2615E003E2777 /* MRPurchaseButton.framework-iphonesimulator.xcarchive */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "MRPurchaseButton.framework-iphonesimulator.xcarchive"; sourceTree = "<group>"; };
-		A9D1560327E2615E003E2777 /* MRPurchaseButton.framework-iphoneos.xcarchive */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "MRPurchaseButton.framework-iphoneos.xcarchive"; sourceTree = "<group>"; };
-		A9D1560427E2615E003E2777 /* CalendarControl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CalendarControl.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +44,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9265B7527E2CA83000C39D2 /* MRInAppPurchaseButton */ = {
+			isa = PBXGroup;
+			children = (
+				A9265B7627E2CA83000C39D2 /* MRPurchaseButton.h */,
+				A9265B7727E2CA83000C39D2 /* BorderedButton */,
+				A9265B7C27E2CA83000C39D2 /* PurchaseButton */,
+			);
+			path = MRInAppPurchaseButton;
+			sourceTree = "<group>";
+		};
+		A9265B7727E2CA83000C39D2 /* BorderedButton */ = {
+			isa = PBXGroup;
+			children = (
+				A9265B7827E2CA83000C39D2 /* BorderedButton.h */,
+				A9265B7927E2CA83000C39D2 /* BorderedView.m */,
+				A9265B7A27E2CA83000C39D2 /* BorderedButton.m */,
+				A9265B7B27E2CA83000C39D2 /* BorderedView.h */,
+			);
+			path = BorderedButton;
+			sourceTree = "<group>";
+		};
+		A9265B7C27E2CA83000C39D2 /* PurchaseButton */ = {
+			isa = PBXGroup;
+			children = (
+				A9265B7D27E2CA83000C39D2 /* PurchaseButton.h */,
+				A9265B7E27E2CA83000C39D2 /* PurchaseActivityIndicatorView.m */,
+				A9265B7F27E2CA83000C39D2 /* PurchaseButton.m */,
+				A9265B8027E2CA83000C39D2 /* PurchaseActivityIndicatorView.h */,
+			);
+			path = PurchaseButton;
+			sourceTree = "<group>";
+		};
 		A9726A8B27E253950047E121 = {
 			isa = PBXGroup;
 			children = (
 				A9D155FF27E260E1003E2777 /* createXCFramework.sh */,
-				A9D1560127E2615E003E2777 /* build */,
-				A9726A9727E253960047E121 /* MRPurchaseButton */,
+				A9265B7527E2CA83000C39D2 /* MRInAppPurchaseButton */,
 				A9726A9627E253960047E121 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,52 +88,9 @@
 		A9726A9627E253960047E121 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9726A9527E253960047E121 /* MRPurchaseButton.framework */,
+				A9726A9527E253960047E121 /* MRInAppPurchaseButton.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A9726A9727E253960047E121 /* MRPurchaseButton */ = {
-			isa = PBXGroup;
-			children = (
-				A9726A9827E253960047E121 /* MRPurchaseButton.h */,
-				A9726A9F27E253B50047E121 /* BorderedButton */,
-				A9726AA827E253BA0047E121 /* PurchaseButton */,
-			);
-			path = MRPurchaseButton;
-			sourceTree = "<group>";
-		};
-		A9726A9F27E253B50047E121 /* BorderedButton */ = {
-			isa = PBXGroup;
-			children = (
-				A9726AA027E253B50047E121 /* BorderedButton.h */,
-				A9726AA127E253B50047E121 /* BorderedView.h */,
-				A9726AA227E253B50047E121 /* BorderedButton.m */,
-				A9726AA327E253B50047E121 /* BorderedView.m */,
-			);
-			path = BorderedButton;
-			sourceTree = "<group>";
-		};
-		A9726AA827E253BA0047E121 /* PurchaseButton */ = {
-			isa = PBXGroup;
-			children = (
-				A9726AA927E253BA0047E121 /* PurchaseButton.h */,
-				A9726AAA27E253BA0047E121 /* PurchaseActivityIndicatorView.h */,
-				A9726AAB27E253BA0047E121 /* PurchaseButton.m */,
-				A9726AAC27E253BA0047E121 /* PurchaseActivityIndicatorView.m */,
-			);
-			path = PurchaseButton;
-			sourceTree = "<group>";
-		};
-		A9D1560127E2615E003E2777 /* build */ = {
-			isa = PBXGroup;
-			children = (
-				A9D1560227E2615E003E2777 /* MRPurchaseButton.framework-iphonesimulator.xcarchive */,
-				A9D1560327E2615E003E2777 /* MRPurchaseButton.framework-iphoneos.xcarchive */,
-				A9D1560427E2615E003E2777 /* CalendarControl.xcframework */,
-			);
-			name = build;
-			path = "../../../../../iOS-Library/Framework/MRPurchaseButton/build";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,20 +100,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9726A9927E253960047E121 /* MRPurchaseButton.h in Headers */,
-				A9726AB427E254030047E121 /* PurchaseActivityIndicatorView.h in Headers */,
-				A9726AB327E254000047E121 /* PurchaseButton.h in Headers */,
-				A9726AB127E253FD0047E121 /* BorderedButton.h in Headers */,
-				A9726AB227E253FD0047E121 /* BorderedView.h in Headers */,
+				A9265B8527E2CA83000C39D2 /* BorderedView.h in Headers */,
+				A9265B8927E2CA84000C39D2 /* PurchaseActivityIndicatorView.h in Headers */,
+				A9265B8627E2CA84000C39D2 /* PurchaseButton.h in Headers */,
+				A9265B8127E2CA83000C39D2 /* MRPurchaseButton.h in Headers */,
+				A9265B8227E2CA83000C39D2 /* BorderedButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A9726A9427E253960047E121 /* MRPurchaseButton */ = {
+		A9726A9427E253960047E121 /* MRInAppPurchaseButton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9726A9C27E253960047E121 /* Build configuration list for PBXNativeTarget "MRPurchaseButton" */;
+			buildConfigurationList = A9726A9C27E253960047E121 /* Build configuration list for PBXNativeTarget "MRInAppPurchaseButton" */;
 			buildPhases = (
 				A9726A9027E253960047E121 /* Headers */,
 				A9726A9127E253960047E121 /* Sources */,
@@ -139,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = MRPurchaseButton;
+			name = MRInAppPurchaseButton;
 			productName = AvePurchaseButton;
-			productReference = A9726A9527E253960047E121 /* MRPurchaseButton.framework */;
+			productReference = A9726A9527E253960047E121 /* MRInAppPurchaseButton.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -158,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A9726A8F27E253960047E121 /* Build configuration list for PBXProject "MRPurchaseButton" */;
+			buildConfigurationList = A9726A8F27E253960047E121 /* Build configuration list for PBXProject "MRInAppPurchaseButton" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -171,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9726A9427E253960047E121 /* MRPurchaseButton */,
+				A9726A9427E253960047E121 /* MRInAppPurchaseButton */,
 			);
 		};
 /* End PBXProject section */
@@ -192,10 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9726AAF27E253BA0047E121 /* PurchaseButton.m in Sources */,
-				A9726AB027E253BA0047E121 /* PurchaseActivityIndicatorView.m in Sources */,
-				A9726AA727E253B50047E121 /* BorderedView.m in Sources */,
-				A9726AA627E253B50047E121 /* BorderedButton.m in Sources */,
+				A9265B8427E2CA83000C39D2 /* BorderedButton.m in Sources */,
+				A9265B8727E2CA84000C39D2 /* PurchaseActivityIndicatorView.m in Sources */,
+				A9265B8827E2CA84000C39D2 /* PurchaseButton.m in Sources */,
+				A9265B8327E2CA83000C39D2 /* BorderedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +362,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A9726A8F27E253960047E121 /* Build configuration list for PBXProject "MRPurchaseButton" */ = {
+		A9726A8F27E253960047E121 /* Build configuration list for PBXProject "MRInAppPurchaseButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9726A9A27E253960047E121 /* Debug */,
@@ -386,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9726A9C27E253960047E121 /* Build configuration list for PBXNativeTarget "MRPurchaseButton" */ = {
+		A9726A9C27E253960047E121 /* Build configuration list for PBXNativeTarget "MRInAppPurchaseButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9726A9D27E253960047E121 /* Debug */,

@@ -1,6 +1,0 @@
-framework module MRPurchaseButton {
-  umbrella header "MRPurchaseButton.h"
-
-  export *
-  module * { export * }
-}
