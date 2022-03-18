@@ -22,6 +22,7 @@ import UIKit
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     open var inAppView: MRInAppPurchaseView!
+    open var cellBorderColor: UIColor = .lightGray
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
@@ -51,14 +52,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         return 44
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -76,9 +69,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.imageView?.contentMode = .scaleAspectFit
         cell.imageView?.borderWidth = 1
         cell.imageView?.cornerRadius = 6
-        cell.imageView?.borderColor = .lightGray
-        cell.imageView?.width = 24
-        cell.imageView?.height = 24
+        cell.imageView?.borderColor = cellBorderColor
+        cell.imageView?.width = 27
+        cell.imageView?.height = 27
 
         // text
         cell.textLabel?.text = data.title
@@ -163,9 +156,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     open func hideTableViewMargins(){
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-//        tableView.layoutIfNeeded()
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+        tableView.layoutIfNeeded()
     }
 
     // MARK: - IBActions
