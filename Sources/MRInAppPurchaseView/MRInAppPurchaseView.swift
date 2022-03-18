@@ -41,10 +41,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         view = tableView
     }
     
-    open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
-        self.inAppPurchases = inAppPurchases
-    }
-    
     deinit {
         debugPrint("MRInAppPurchaseView DEINITIALIZATED!!!!")
     }
@@ -125,18 +121,18 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        setNomalStateToPurchaseButtons()
+        setNomalStateToPurchaseButtonsFromConfirmation()
     }
     
     // MARK: - UIScrollView
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        setNomalStateToPurchaseButtons()
+        setNomalStateToPurchaseButtonsFromConfirmation()
     }
     
-    // MARK: - Private functions
+    // MARK: - Public functions
 
-    private func setNomalStateToPurchaseButtons() {
+    open func setNomalStateToPurchaseButtonsFromConfirmation() {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
                 let inAppButton = view as! PurchaseButton
@@ -146,11 +142,30 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    
+    open func setNomalStateToPurchaseButtonsFromProgress() {
+        for view in tableView.subviewsRecursive() {
+            if view is PurchaseButton {
+                let inAppButton = view as! PurchaseButton
+                if inAppButton.buttonState == .progress {
+                    inAppButton.setButtonState(PurchaseButtonState.normal, animated: true)
+                }
+            }
+        }
+    }
+    
+    open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
+        self.inAppPurchases = inAppPurchases
+    }
+    
+    open func reloadData() {
+        self.tableView.reloadData()
+    }
 
     // MARK: - IBActions
     
     @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
-        setNomalStateToPurchaseButtons()
+        setNomalStateToPurchaseButtonsFromConfirmation()
         
         let data = inAppPurchases[button.tag]
         showAlert(title: data.title, message: data.info, buttonTitles: [locFromBundle("OKBUTTON")], highlightedButtonIndex: 0)
