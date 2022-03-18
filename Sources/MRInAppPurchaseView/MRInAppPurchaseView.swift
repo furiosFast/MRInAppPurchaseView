@@ -34,7 +34,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
+//        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
         tableView.tintColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         tableView.delegate = self
@@ -84,7 +84,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
         inAppInfoButton.tag = indexPath.row
         if data.info.isEmpty {
-            inAppInfoButton.isHidden = true
+            inAppInfoButton.alpha = 0
+            inAppInfoButton.isUserInteractionEnabled = false
         }
         
         // purchase button
@@ -108,7 +109,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.accessoryView = stackView
         
         cell.selectionStyle = .none
-        cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
+//        cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
         cell.tintColor = .white
         return cell
     }
