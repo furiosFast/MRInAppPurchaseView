@@ -15,13 +15,15 @@ import SwifterSwift
 import UIKit
 
 open class InAppData: NSObject, NSCoding {
+    public final let id: String
     public final let icon: UIImage
     public final let title: String
     public final let info: String
     public final let purchaseButtonTitle: String
     public final let isPurchasedDisable: Bool
 
-    public init(_ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
+    public init(id: String, _ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
+        self.id = id
         self.icon = icon
         self.title = title
         self.info = info
@@ -30,6 +32,7 @@ open class InAppData: NSObject, NSCoding {
     }
 
     public required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.icon = UIImage(data: aDecoder.decodeObject(forKey: "icon") as! Data)!
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.info = aDecoder.decodeObject(forKey: "info") as! String
@@ -38,6 +41,7 @@ open class InAppData: NSObject, NSCoding {
     }
 
     public func encode(with encoder: NSCoder) {
+        encoder.encode(self.id, forKey: "id")
         encoder.encode(self.icon.compressedData(), forKey: "icon")
         encoder.encode(self.title, forKey: "title")
         encoder.encode(self.info, forKey: "info")
