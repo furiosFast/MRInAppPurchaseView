@@ -22,7 +22,7 @@ open class InAppData: NSObject, NSCoding {
     public final let purchaseButtonTitle: String
     public final let isPurchasedDisable: Bool
 
-    public init(id: String, _ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
+    public init(_ id: String, _ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.id = id
         self.icon = icon
         self.title = title
