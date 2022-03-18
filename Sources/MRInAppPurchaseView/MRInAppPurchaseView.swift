@@ -38,8 +38,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isScrollEnabled = false
-        tableView.tableHeaderView = nil
-        tableView.tableFooterView = nil
         view = tableView
     }
     
@@ -75,7 +73,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
-        let accessoryView = UIStackView(arrangedSubviews: [], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
         let data = inAppPurchases[indexPath.row]
         
         // icon
@@ -91,13 +88,14 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.text = data.title
         
         // info button
-        if !data.info.isEmpty {
-            let inAppInfoButton = UIButton(type: .infoLight)
-            inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-            inAppInfoButton.tintColor = .link
-            inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
-            inAppInfoButton.tag = indexPath.row
-            accessoryView.addArrangedSubview(inAppInfoButton)
+        let inAppInfoButton = UIButton(type: .infoLight)
+        inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        inAppInfoButton.tintColor = .link
+        inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
+        inAppInfoButton.tag = indexPath.row
+        if data.info.isEmpty {
+            inAppInfoButton.alpha = 0.0
+            inAppInfoButton.isUserInteractionEnabled = false
         }
         
         // purchase button
@@ -114,16 +112,11 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = locFromBundle("CONFIRM").uppercased()
-        accessoryView.addArrangedSubview(inAppPurchase)
         
         // accessoryView
-        if data.info.isEmpty {
-            accessoryView.frame = CGRect(x: 0, y: 0, width: 95, height: cell.height)
-            cell.accessoryView = accessoryView
-        } else {
-            accessoryView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
-            cell.accessoryView = accessoryView
-        }
+        let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
+        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
+        cell.accessoryView = stackView
         
         cell.selectionStyle = .none
         cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
