@@ -155,11 +155,12 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     open func hideTableViewMargins() {
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
 
-        tableView.layoutMargins = .init(top: 0.0, left: 0, bottom: 0.0, right: 0)
+        tableView.layoutMargins = .init(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
         tableView.separatorInset = tableView.layoutMargins
+        
         tableView.layoutIfNeeded()
     }
 
