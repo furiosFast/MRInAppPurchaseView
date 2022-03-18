@@ -32,6 +32,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
         tableView.tintColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
@@ -160,7 +162,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
 
-        tableView.layoutMargins = .init(top: 0.0, left: 0.1, bottom: 0.0, right: 1.0)
+        tableView.layoutMargins = .init(top: 0.0, left: 0.1, bottom: 0.0, right: 0.1)
         tableView.separatorInset = tableView.layoutMargins
         
         tableView.layoutIfNeeded()
