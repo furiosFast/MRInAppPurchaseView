@@ -119,10 +119,11 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         // accessoryView
         if data.info.isEmpty {
             accessoryView.frame = CGRect(x: 0, y: 0, width: 95, height: cell.height)
+            cell.accessoryView = inAppPurchase
         } else {
             accessoryView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
+            cell.accessoryView = accessoryView
         }
-        cell.accessoryView = accessoryView
         
         cell.selectionStyle = .none
         cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
