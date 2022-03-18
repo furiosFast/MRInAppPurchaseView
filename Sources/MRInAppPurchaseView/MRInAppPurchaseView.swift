@@ -52,7 +52,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
+        return 0.01
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -163,9 +163,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     open func hideTableViewMargins(){
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-        tableView.layoutIfNeeded()
+//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+//        tableView.layoutIfNeeded()
     }
 
     // MARK: - IBActions
