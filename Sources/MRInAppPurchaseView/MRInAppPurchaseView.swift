@@ -84,8 +84,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
         inAppInfoButton.tag = indexPath.row
         if data.info.isEmpty {
-            inAppInfoButton.alpha = 0.0
-            inAppInfoButton.isUserInteractionEnabled = false
+            inAppInfoButton.isHidden = true
         }
         
         // purchase button
@@ -156,8 +155,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadData()
     }
     
-    /// Public function for remove all tableView margins
-    /// To use when you want embeed this table inside another table
+    /// To use only when you want embeed this table inside another table
     open func hideTableViewMargins() {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
