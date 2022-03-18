@@ -38,6 +38,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isScrollEnabled = false
+        tableView.tableHeaderView = nil
+        tableView.tableFooterView = nil
         view = tableView
     }
     
