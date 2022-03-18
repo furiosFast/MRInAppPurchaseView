@@ -22,7 +22,6 @@ import UIKit
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     open var inAppView: MRInAppPurchaseView!
-    open var cellBorderColor: UIColor = .lightGray
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
@@ -33,6 +32,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView.layoutMargins = .init(top: 0.0, left: -23.5, bottom: 0.0, right: 23.5)
+        tableView.separatorInset = tableView.layoutMargins
         tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
         tableView.tintColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
@@ -49,7 +50,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - UITableView
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 49
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +70,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.imageView?.contentMode = .scaleAspectFit
         cell.imageView?.borderWidth = 1
         cell.imageView?.cornerRadius = 6
-        cell.imageView?.borderColor = cellBorderColor
+        cell.imageView?.borderColor = .lightGray
         cell.imageView?.width = 27
         cell.imageView?.height = 27
 
@@ -152,10 +153,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     open func reloadData() {
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
-    open func hideTableViewMargins(){
+    open func hideTableViewMargins() {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         tableView.layoutIfNeeded()
