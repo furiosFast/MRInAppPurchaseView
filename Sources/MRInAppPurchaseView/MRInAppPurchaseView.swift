@@ -22,6 +22,7 @@ import UIKit
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     open var inAppView: MRInAppPurchaseView!
+    open var hideMargins: Bool = false
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
@@ -38,6 +39,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isScrollEnabled = false
+//        if hideMargins {
+            tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+            tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+//        }
         view = tableView
     }
     
