@@ -26,6 +26,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     private var tableView = UITableView()
     private var inAppPurchases: [InAppData] = []
+    private var cellTitleFont: UIFont?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
         // text
         cell.textLabel?.text = data.title
+        cell.textLabel?.font = cellTitleFont
         
         // info button
         let inAppInfoButton = UIButton(type: .infoLight)
@@ -83,6 +85,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppInfoButton.tintColor = .link
         inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
         inAppInfoButton.tag = indexPath.row
+        inAppInfoButton.showsTouchWhenHighlighted = true
         if data.info.isEmpty {
             inAppInfoButton.alpha = 0
             inAppInfoButton.isUserInteractionEnabled = false
@@ -150,6 +153,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
         self.inAppPurchases = inAppPurchases
+    }
+    
+    open func setTitleFont(_ font: UIFont) {
+        cellTitleFont = font
     }
     
     open func reloadData() {
