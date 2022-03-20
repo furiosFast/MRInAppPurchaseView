@@ -21,7 +21,7 @@ open class InAppData: NSObject, NSCoding {
     public final let info: String
     public final let purchaseButtonTitle: String
     public final let isPurchasedDisable: Bool
-    public final let iconBorderColor: UIColor = .lightGray
+    public final var iconBorderColor: UIColor = .lightGray
 
     public init(_ id: String, _ icon: UIImage, _ title: String, _ info: String, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.id = id
