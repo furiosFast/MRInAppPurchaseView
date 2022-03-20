@@ -108,13 +108,13 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         accessoryView.addArrangedSubview(inAppPurchase)
 
         // accessoryView
+        #warning("modificare con for normale qui")
         var accessoryViewWidth: CGFloat = 0
-        accessoryView.arrangedSubviews.forEach { view in
+        for view in accessoryView.arrangedSubviews {
             accessoryViewWidth += view.width
-            if accessoryView.arrangedSubviews.count > 1 {
-                accessoryViewWidth += 16
-            }
+            accessoryViewWidth += 16
         }
+        accessoryViewWidth -= 16
         accessoryView.frame = CGRect(x: 0, y: 0, width: accessoryViewWidth, height: cell.height)
         accessoryView.axis = .horizontal
         accessoryView.spacing = 16
