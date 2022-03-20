@@ -78,6 +78,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         // text
         cell.textLabel?.text = data.title
         cell.textLabel?.font = cellTitleFont
+        cell.textLabel?.minimumScaleFactor = 0.6
         
         // info button
         let inAppInfoButton = UIButton(type: .infoLight)
