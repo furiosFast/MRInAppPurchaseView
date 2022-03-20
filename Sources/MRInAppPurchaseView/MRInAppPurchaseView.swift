@@ -8,7 +8,7 @@
 //  Using Swift 5.4
 //  Running on macOS 11.5.2
 //
-//  Copyright © 2021 Fast-Devs Project. All rights reserved.
+//  Copyright © 2021-2022 Fast-Devs Project. All rights reserved.
 //
 
 import MRInAppPurchaseButton
@@ -21,7 +21,7 @@ import UIKit
 }
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    open var inAppView: MRInAppPurchaseView!
+    open var inAppPurchaseView: MRInAppPurchaseView!
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
@@ -30,7 +30,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        inAppView = self
+        inAppPurchaseView = self
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
@@ -64,7 +64,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
-        
+        var accessoryView = UIStackView()
+
         // icon
         cell.imageView?.image = data.icon
         cell.imageView?.contentMode = .scaleAspectFit
@@ -80,15 +81,14 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.minimumScaleFactor = 0.6
         
         // info button
-        let inAppInfoButton = UIButton(type: .infoLight)
-        inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-        inAppInfoButton.tintColor = .link
-        inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
-        inAppInfoButton.tag = indexPath.row
-        inAppInfoButton.showsTouchWhenHighlighted = true
-        if data.info.isEmpty {
-            inAppInfoButton.alpha = 0
-            inAppInfoButton.isUserInteractionEnabled = false
+        if data.wiki != nil {
+            let inAppInfoButton = UIButton(type: .infoLight)
+            inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+            inAppInfoButton.tintColor = .link
+            inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
+            inAppInfoButton.tag = indexPath.row
+            inAppInfoButton.showsTouchWhenHighlighted = true
+            accessoryView.addArrangedSubview(inAppInfoButton)
         }
         
         // purchase button
@@ -105,11 +105,19 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = Utils.locFromBundle("CONFIRM").uppercased()
-        
+        accessoryView.addArrangedSubview(inAppPurchase)
+
         // accessoryView
-        let stackView = UIStackView(arrangedSubviews: [inAppInfoButton, inAppPurchase], axis: .horizontal, spacing: 16, alignment: .center, distribution: .fill)
-        stackView.frame = CGRect(x: 0, y: 0, width: 24 + 16 + 95, height: cell.height)
-        cell.accessoryView = stackView
+        var accessoryViewWidth: CGFloat = 16
+        accessoryView.arrangedSubviews.forEach { view in
+            accessoryViewWidth += view.width
+        }
+        accessoryView.frame = CGRect(x: 0, y: 0, width: accessoryViewWidth, height: cell.height)
+        accessoryView.axis = .horizontal
+        accessoryView.spacing = 16
+        accessoryView.alignment = .center
+        accessoryView.distribution = .fill
+        cell.accessoryView = accessoryView
         
         cell.selectionStyle = .none
         cell.tintColor = .white
@@ -179,8 +187,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         setNomalStateToPurchaseButtonsFromConfirmation()
         
         let data = inAppPurchases[button.tag]
-        Utils.showAttributedAlert(text: data.info, alert: showAlert(title: data.title, message: nil, buttonTitles: [Utils.loc("OKBUTTON")], highlightedButtonIndex: 0))
-
+        if let wiki = data.wiki {
+            Utils.showAttributedAlert(text: wiki, alert: showAlert(title: data.title, message: nil, buttonTitles: [Utils.loc("OKBUTTON")], highlightedButtonIndex: 0))
+        }
+        
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
     }
     

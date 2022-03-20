@@ -8,7 +8,7 @@
 //  Using Swift 5.4
 //  Running on macOS 11.5.2
 //
-//  Copyright © 2021 Fast-Devs Project. All rights reserved.
+//  Copyright © 2021-2022 Fast-Devs Project. All rights reserved.
 //
 
 import UIKit
