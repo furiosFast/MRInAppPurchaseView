@@ -14,18 +14,11 @@
 import UIKit
 
 class Utils {
-    
     /// Public function for get localized string from this Bundle
     /// - Parameter localizedKey: string key to localize
     static func locFromBundle(_ localizedKey: String) -> String {
         return loc(localizedKey)
     }
-
-    /// Public function for get an image from this Bundle
-    /// - Parameter named: image name
-//    static func colorFromBundle(named: String) -> UIColor? {
-//        return UIColor(named: named, in: .module, compatibleWith: nil)
-//    }
 
     /// Public function for localize string
     /// - Parameter localizedKey: string key to localize

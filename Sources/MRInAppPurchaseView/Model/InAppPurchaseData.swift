@@ -14,7 +14,7 @@
 import SwifterSwift
 import UIKit
 
-open class InAppData: NSObject, NSCoding {
+open class InAppPurchaseData: NSObject, NSCoding {
     public final let id: String
     public final let icon: UIImage
     public final let title: String

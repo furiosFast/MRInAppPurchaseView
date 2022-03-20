@@ -16,8 +16,8 @@ import SwifterSwift
 import UIKit
 
 @objc public protocol MRInAppPurchaseViewDelegate: NSObjectProtocol {
-    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppData)
-    @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppData)
+    @objc func inAppPurchaseButtonTapped(inAppPurchase: InAppPurchaseData)
+    @objc optional func accessoryButtonTappedForRowWith(inAppPurchase: InAppPurchaseData)
 }
 
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -25,7 +25,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     open weak var delegate: MRInAppPurchaseViewDelegate?
     
     private var tableView = UITableView()
-    private var inAppPurchases: [InAppData] = []
+    private var inAppPurchases: [InAppPurchaseData] = []
     private var cellTitleFont: UIFont?
     
     override open func viewDidLoad() {
@@ -35,7 +35,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
-//        tableView.backgroundColor = UIColor(named: "Table View Backgound Custom Color")
         tableView.tintColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id_table_cell_in_app_list")
         tableView.delegate = self
@@ -113,7 +112,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.accessoryView = stackView
         
         cell.selectionStyle = .none
-//        cell.backgroundColor = colorFromBundle(named: "Table View Cell Backgound Custom Color")
         cell.tintColor = .white
         return cell
     }
@@ -152,7 +150,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    open func setInAppPurchases(_ inAppPurchases: [InAppData]) {
+    open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
         self.inAppPurchases = inAppPurchases
     }
     
