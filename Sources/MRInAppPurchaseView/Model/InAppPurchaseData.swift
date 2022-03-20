@@ -23,7 +23,7 @@ open class InAppPurchaseData: NSObject, NSCoding {
     public final let isPurchasedDisable: Bool
     public final var iconBorderColor: UIColor = .lightGray
 
-    public init(_ id: String, _ icon: UIImage, _ title: String, _ wiki: String?, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
+    public init(_ id: String, _ icon: UIImage, _ title: String, _ wiki: String? = nil, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.id = id
         self.icon = icon
         self.title = title

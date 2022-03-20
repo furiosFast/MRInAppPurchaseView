@@ -108,9 +108,12 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         accessoryView.addArrangedSubview(inAppPurchase)
 
         // accessoryView
-        var accessoryViewWidth: CGFloat = 16
+        var accessoryViewWidth: CGFloat = 0
         accessoryView.arrangedSubviews.forEach { view in
             accessoryViewWidth += view.width
+            if accessoryView.arrangedSubviews.count > 1 {
+                accessoryViewWidth += 16
+            }
         }
         accessoryView.frame = CGRect(x: 0, y: 0, width: accessoryViewWidth, height: cell.height)
         accessoryView.axis = .horizontal
