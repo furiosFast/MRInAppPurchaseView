@@ -33,9 +33,9 @@ class Utils {
     ///   - alert: UIAlertController
     /// - Returns: alert with aligned text
     @discardableResult
-    static func showAttributedAlert(text: String, textAlign: NSTextAlignment = NSTextAlignment.left, alert: UIAlertController) -> UIAlertController {
+    static func showAttributedAlert(text: String, textAlignment: NSTextAlignment = NSTextAlignment.left, alert: UIAlertController) -> UIAlertController {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = textAlign
+        paragraphStyle.alignment = textAlignment
 
         let attributedMessageText = NSMutableAttributedString(string: text, attributes: [
             .paragraphStyle: paragraphStyle,

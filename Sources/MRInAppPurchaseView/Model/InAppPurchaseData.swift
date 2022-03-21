@@ -22,6 +22,7 @@ open class InAppPurchaseData: NSObject, NSCoding {
     public final let purchaseButtonTitle: String
     public final let isPurchasedDisable: Bool
     public final var iconBorderColor: UIColor = .lightGray
+    public final var wikiTextAlignment: NSTextAlignment = NSTextAlignment.left
 
     public init(_ id: String, _ icon: UIImage, _ title: String, _ wiki: String?, _ purchaseButtonTitle: String, _ isPurchasedDisable: Bool = false) {
         self.id = id

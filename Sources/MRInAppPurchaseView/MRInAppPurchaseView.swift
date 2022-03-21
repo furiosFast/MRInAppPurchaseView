@@ -64,7 +64,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
-        var accessoryView = UIStackView()
+        let accessoryView = UIStackView()
 
         // icon
         cell.imageView?.image = data.icon
@@ -78,12 +78,13 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         // text
         cell.textLabel?.text = data.title
         cell.textLabel?.font = cellTitleFont
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.minimumScaleFactor = 0.6
         
         // info button
         if data.wiki != nil {
             let inAppInfoButton = UIButton(type: .infoLight)
-            inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+            inAppInfoButton.frame = CGRect(x: 0, y: 0, width: 24, height: cell.height)
             inAppInfoButton.tintColor = .link
             inAppInfoButton.addTarget(self, action: #selector(inAppInfoButtonTapped), for: .touchUpInside)
             inAppInfoButton.tag = indexPath.row
@@ -92,7 +93,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         }
         
         // purchase button
-        let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: 24))
+        let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: cell.height))
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
         inAppPurchase.tag = indexPath.row
         if !data.isPurchasedDisable {
@@ -108,13 +109,11 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         accessoryView.addArrangedSubview(inAppPurchase)
 
         // accessoryView
-        #warning("modificare con for normale qui")
-        var accessoryViewWidth: CGFloat = 0
+        var accessoryViewWidth: CGFloat = -16
         for view in accessoryView.arrangedSubviews {
             accessoryViewWidth += view.width
             accessoryViewWidth += 16
         }
-        accessoryViewWidth -= 16
         accessoryView.frame = CGRect(x: 0, y: 0, width: accessoryViewWidth, height: cell.height)
         accessoryView.axis = .horizontal
         accessoryView.spacing = 16
@@ -191,7 +190,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         
         let data = inAppPurchases[button.tag]
         if let wiki = data.wiki {
-            Utils.showAttributedAlert(text: wiki, alert: showAlert(title: data.title, message: nil, buttonTitles: [Utils.loc("OKBUTTON")], highlightedButtonIndex: 0))
+            Utils.showAttributedAlert(text: wiki,
+                                      textAlignment: data.wikiTextAlignment,
+                                      alert: showAlert(title: data.title, message: nil, buttonTitles: [Utils.loc("OKBUTTON")], highlightedButtonIndex: 0))
         }
         
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
