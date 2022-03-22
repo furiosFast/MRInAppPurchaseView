@@ -143,7 +143,19 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         self.inAppPurchases = inAppPurchases
     }
     
-    open func setProgressStatoToPurchase(_ inAppPurchase: InAppPurchaseData) {
+    open func setConfirmationStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
+        for view in tableView.subviewsRecursive() {
+            if view is PurchaseButton {
+                let inAppButton = view as! PurchaseButton
+                if view.accessibilityIdentifier == inAppPurchase.id {
+                    inAppButton.setButtonState(PurchaseButtonState.confirmation, animated: true)
+                    break
+                }
+            }
+        }
+    }
+
+    open func setProgressStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
                 let inAppButton = view as! PurchaseButton
