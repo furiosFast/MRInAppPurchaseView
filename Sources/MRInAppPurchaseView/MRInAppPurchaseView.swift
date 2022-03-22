@@ -96,6 +96,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: cell.height))
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
         inAppPurchase.tag = indexPath.row
+        inAppPurchase.accessibilityIdentifier = data.id
         if !data.isPurchasedDisable {
             inAppPurchase.normalColor = .link
             inAppPurchase.isEnabled = true
@@ -138,6 +139,22 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Public functions
 
+    open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
+        self.inAppPurchases = inAppPurchases
+    }
+    
+    open func setProgressStatoToPurchase(_ inAppPurchase: InAppPurchaseData) {
+        for view in tableView.subviewsRecursive() {
+            if view is PurchaseButton {
+                let inAppButton = view as! PurchaseButton
+                if view.accessibilityIdentifier == inAppPurchase.id {
+                    inAppButton.setButtonState(PurchaseButtonState.progress, animated: true)
+                    break
+                }
+            }
+        }
+    }
+    
     open func setNomalStateToPurchaseButtonsFromConfirmation() {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
@@ -158,10 +175,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
-    }
-    
-    open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
-        self.inAppPurchases = inAppPurchases
     }
     
     open func setTitleFont(_ font: UIFont) {
