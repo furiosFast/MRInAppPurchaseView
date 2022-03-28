@@ -142,7 +142,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
     open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
         self.inAppPurchases = inAppPurchases
-        reloadData()
+        DispatchQueue.main.async {
+            reloadData()
+        }
     }
     
     open func setConfirmationStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
