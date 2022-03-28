@@ -27,12 +27,13 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     private var tableView = UITableView()
     private var inAppPurchases: [InAppPurchaseData] = []
     private var cellTitleFont: UIFont?
+    private let cellHeight = 49
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         inAppPurchaseView = self
         
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: cellHeight * inAppPurchases.count), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.tintColor = .white
@@ -50,7 +51,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - UITableView
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 49
+        return cellHeight.cgFloat
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -189,7 +190,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    open func setTitleFont(_ font: UIFont) {
+    open func setCellTitleFont(_ font: UIFont) {
         cellTitleFont = font
     }
     
