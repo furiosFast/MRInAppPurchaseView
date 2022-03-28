@@ -143,7 +143,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
         self.inAppPurchases = inAppPurchases
         DispatchQueue.main.async {
-            reloadData()
+            self.reloadData()
         }
     }
     
