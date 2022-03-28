@@ -197,13 +197,12 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     open func reloadData() {
         DispatchQueue.main.async {
-            self.view.height = self.cellHeight * self.inAppPurchases.count.cgFloat
             self.tableView.height = self.cellHeight * self.inAppPurchases.count.cgFloat
-
-            self.tableView.reloadData()
+            self.view.height = self.cellHeight * self.inAppPurchases.count.cgFloat
             
-            self.view.layoutIfNeeded()
+            self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         }
     }
     
