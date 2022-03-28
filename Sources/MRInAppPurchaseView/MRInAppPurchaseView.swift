@@ -33,7 +33,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         inAppPurchaseView = self
         
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: (cellHeight * inAppPurchases.count.cgFloat)), style: .insetGrouped)
+        tableView = UITableView(frame: CGRect(x: (cellHeight * inAppPurchases.count.cgFloat), y: 0, width: view.size.width, height: (cellHeight * inAppPurchases.count.cgFloat)), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.tintColor = .white
