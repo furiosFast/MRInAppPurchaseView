@@ -198,10 +198,12 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     }
     
     open func reloadData() {
+        self.tableView.height = self.cellHeight * inAppPurchases.count.cgFloat
         self.view.height = self.cellHeight * inAppPurchases.count.cgFloat
-        
+
         tableView.reloadData()
         tableView.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     /// To use only when you want embeed this table inside another table
