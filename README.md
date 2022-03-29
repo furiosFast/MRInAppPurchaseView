@@ -9,6 +9,10 @@
 
 Simple tableView for display and interact with in-app purchases
     
+<p align="center" width="100%">
+    <img src="https://github.com/furiosFast/MRInAppPurchaseView/blob/main/Assets/screen.png?raw=true">
+</p>
+    
 ## Requirements
 
 - iOS 13.0+
