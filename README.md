@@ -2,9 +2,9 @@
 
 [![SPM ready](https://img.shields.io/badge/SPM-ready-orange.svg)](https://swift.org/package-manager/)
 ![Platform](https://img.shields.io/badge/platforms-iOS%2013.0-F28D00.svg)
-[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-12.5-blue.svg)](https://developer.apple.com/xcode)
-[![License](https://img.shields.io/cocoapods/l/Pastel.svg?style=flat)](https://github.com/furiosFast/MRInAppPurchaseView/blob/master/LICENSE)
+[![Swift](https://img.shields.io/badge/Swift-5.5-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-13.0-blue.svg)](https://developer.apple.com/xcode)
+[![License](https://img.shields.io/cocoapods/l/Pastel.svg?style=flat)](https://github.com/furiosFast/MRInAppPurchaseView/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/badge/twitter-@FastDevsProject-blue.svg?style=flat)](https://twitter.com/FastDevsProject)
 
 Simple tableView for display and interact with in-app purchases
@@ -13,7 +13,7 @@ Simple tableView for display and interact with in-app purchases
 
 - iOS 13.0+
 - Xcode 13.0+
-- Swift 5+
+- Swift 5.5+
 
 ## Installation
 
@@ -76,14 +76,6 @@ class IAPViewController: MRInAppPurchaseView, MRInAppPurchaseViewDelegate {
         
         if inAppPurchase.id == inAppId_proKit {
             proKit(manager)
-        } else if inAppPurchase.id == inAppId_testKit {
-            testKit(manager)
-        } else if inAppPurchase.id == inAppId_reportKit {
-            reportKit(manager)
-        } else if inAppPurchase.id == inAppId_notificationKit {
-            notificationKit(manager)
-        } else if inAppPurchase.id == inAppId_adsKit {
-            adsKit(manager)
         } else {
             restorePurchases(manager)
         }
@@ -112,7 +104,7 @@ class IAPViewController: MRInAppPurchaseView, MRInAppPurchaseViewDelegate {
     }
     
     // in-app products actions
-    public func proKit(_ manager: IAPManager) {
+    private func proKit(_ manager: IAPManager) {
         if manager.products.count != 0 {
             manager.purchaseProduct(productId: inAppId_proKit, completed: { message in
                 if message.isEmpty {
