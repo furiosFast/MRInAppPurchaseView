@@ -9,8 +9,8 @@
 
 Simple tableView for display and interact with in-app purchases
     
-<p align="center" width="50%">
-    <img src="https://github.com/furiosFast/MRInAppPurchaseView/blob/main/Assets/screen.png?raw=true">
+<p align="center" width="20%">
+    <img src="https://github.com/furiosFast/MRInAppPurchaseView/blob/main/Assets/screen.png">
 </p>
     
 ## Requirements
