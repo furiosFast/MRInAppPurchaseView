@@ -54,10 +54,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         return cellHeight
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -209,7 +205,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     /// To use only when you want embeed this table inside another table
     open func hideTableViewMargins() {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
 
         tableView.layoutMargins = UIEdgeInsets(top: 0.0, left: 0.1, bottom: 0.0, right: 0.1)
         tableView.separatorInset = tableView.layoutMargins
