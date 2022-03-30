@@ -54,6 +54,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         return cellHeight
     }
     
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
