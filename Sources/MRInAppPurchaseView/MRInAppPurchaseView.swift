@@ -26,6 +26,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     
     private var tableView = UITableView()
     private var inAppPurchases: [InAppPurchaseData] = []
+    private var cellBackgrounColor: UIColor?
     private var cellTitleFont: UIFont?
     private let cellHeight: CGFloat = 49
     
@@ -124,8 +125,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.accessoryView = accessoryView
         
         cell.selectionStyle = .none
-        cell.tintColor = .systemYellow
-        cell.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 59)
+        cell.tintColor = .white
+        cell.backgroundColor = cellBackgrounColor
+        cell.separatorInset = UIEdgeInsets.init(top: 0, left: 59, bottom: 0, right: 0)
         return cell
     }
     
