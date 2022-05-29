@@ -194,6 +194,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    open func setCellBackgrounColor(_ color: UIColor) {
+        cellBackgrounColor = color
+    }
     open func setCellTitleFont(_ font: UIFont) {
         cellTitleFont = font
     }
