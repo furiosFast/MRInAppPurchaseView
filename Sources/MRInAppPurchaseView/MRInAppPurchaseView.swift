@@ -124,7 +124,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.accessoryView = accessoryView
         
         cell.selectionStyle = .none
-        cell.tintColor = .white
+        cell.tintColor = .systemYellow
+        cell.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 59)
         return cell
     }
     
