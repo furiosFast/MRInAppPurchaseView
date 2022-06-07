@@ -28,7 +28,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     private var inAppPurchases: [InAppPurchaseData] = []
     private var cellBackgrounColor: UIColor?
     private var cellTitleFont: UIFont?
-    private var cellHeight: CGFloat = 49
+    private var cellHeight: CGFloat = (UIDevice.current.userInterfaceIdiom == .phone ? 49 : 57)
     
     override open func viewDidLoad() {
         super.viewDidLoad()
