@@ -28,7 +28,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     private var inAppPurchases: [InAppPurchaseData] = []
     private var cellBackgrounColor: UIColor?
     private var cellTitleFont: UIFont?
-    private let cellHeight: CGFloat = 49
+    private var cellHeight: CGFloat = 49
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -197,8 +197,13 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     open func setCellBackgrounColor(_ color: UIColor?) {
         cellBackgrounColor = color
     }
+    
     open func setCellTitleFont(_ font: UIFont) {
         cellTitleFont = font
+    }
+    
+    open func setCellHeight(_ height: CGFloat) {
+        cellHeight = height
     }
     
     open func reloadData() {
