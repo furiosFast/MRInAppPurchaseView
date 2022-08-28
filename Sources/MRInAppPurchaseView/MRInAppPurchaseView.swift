@@ -71,9 +71,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         // icon
         cell.imageView?.image = data.icon
         cell.imageView?.contentMode = .scaleAspectFit
-        cell.imageView?.borderWidth = 1
-        cell.imageView?.cornerRadius = 6
-        cell.imageView?.borderColor = data.iconBorderColor
+        cell.imageView?.layerBorderWidth = 1
+        cell.imageView?.layerCornerRadius = 6
+        cell.imageView?.layerBorderColor = data.iconBorderColor
         cell.imageView?.width = 27
         cell.imageView?.height = 27
 
