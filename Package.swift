@@ -7,7 +7,7 @@ let package = Package(
     name: "MRInAppPurchaseView",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v13),
     ],
     products: [
         .library(name: "MRInAppPurchaseView", targets: ["MRInAppPurchaseView"]),
@@ -23,6 +23,6 @@ let package = Package(
         .binaryTarget(name: "MRInAppPurchaseButton", path: "MRInAppPurchaseButton/build/MRInAppPurchaseButton.xcframework"),
     ],
     swiftLanguageVersions: [
-        .v5
+        .v5,
     ]
 )

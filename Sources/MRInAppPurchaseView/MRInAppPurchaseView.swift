@@ -23,17 +23,17 @@ import UIKit
 open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     open var inAppPurchaseView: MRInAppPurchaseView!
     open weak var delegate: MRInAppPurchaseViewDelegate?
-    
+
     private var tableView = UITableView()
     private var inAppPurchases: [InAppPurchaseData] = []
     private var cellBackgrounColor: UIColor?
     private var cellTitleFont: UIFont?
     private var cellHeight: CGFloat = (UIDevice.current.userInterfaceIdiom == .phone ? 49 : 57)
-    
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         inAppPurchaseView = self
-        
+
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.size.width, height: view.size.height), style: .insetGrouped)
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
@@ -44,25 +44,25 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         tableView.isScrollEnabled = false
         view = tableView
     }
-    
+
     deinit {
         debugPrint("MRInAppPurchaseView DEINITIALIZATED!!!!")
     }
-    
+
     // MARK: - UITableView
-    
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    public func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return cellHeight
     }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
+
+    public func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return inAppPurchases.count
     }
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_table_cell_in_app_list", for: indexPath)
         let data = inAppPurchases[indexPath.row]
@@ -82,7 +82,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.font = cellTitleFont
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.minimumScaleFactor = 0.6
-        
+
         // info button
         if data.wiki != nil {
             let inAppInfoButton = UIButton(type: .infoLight)
@@ -93,7 +93,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
             inAppInfoButton.showsTouchWhenHighlighted = true
             accessoryView.addArrangedSubview(inAppInfoButton)
         }
-        
+
         // purchase button
         let inAppPurchase = PurchaseButton(frame: CGRect(x: 0, y: 0, width: 95, height: cell.height))
         inAppPurchase.addTarget(self, action: #selector(inAppPurchaseButtonTapped), for: .touchUpInside)
@@ -123,31 +123,31 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         accessoryView.alignment = .center
         accessoryView.distribution = .fill
         cell.accessoryView = accessoryView
-        
+
         cell.selectionStyle = .none
         cell.tintColor = .white
         cell.backgroundColor = cellBackgrounColor
-        cell.separatorInset = UIEdgeInsets.init(top: 0, left: 59, bottom: 0, right: 0)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 59, bottom: 0, right: 0)
         return cell
     }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    public func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
         setNomalStateToPurchaseButtonsFromConfirmation()
     }
-    
+
     // MARK: - UIScrollView
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_: UIScrollView) {
         setNomalStateToPurchaseButtonsFromConfirmation()
     }
-    
+
     // MARK: - Public functions
 
     open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
         self.inAppPurchases = inAppPurchases
         reloadData()
     }
-    
+
     open func setConfirmationStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
@@ -171,7 +171,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
+
     open func setNomalStateToPurchaseButtonsFromConfirmation() {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
@@ -182,7 +182,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
+
     open func setNomalStateToPurchaseButtonsFromProgress() {
         for view in tableView.subviewsRecursive() {
             if view is PurchaseButton {
@@ -193,26 +193,26 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
+
     open func setCellBackgrounColor(_ color: UIColor?) {
         cellBackgrounColor = color
     }
-    
+
     open func setCellTitleFont(_ font: UIFont) {
         cellTitleFont = font
     }
-    
+
     open func setCellHeight(_ height: CGFloat) {
         cellHeight = height
     }
-    
+
     open func reloadData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
         }
     }
-    
+
     /// To use only when you want embeed this table inside another table
     open func hideTableViewMargins() {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
@@ -220,36 +220,36 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
         tableView.layoutMargins = UIEdgeInsets(top: 0.0, left: 0.1, bottom: 0.0, right: 0.1)
         tableView.separatorInset = tableView.layoutMargins
-        
+
         tableView.layoutIfNeeded()
     }
 
     // MARK: - IBActions
-    
+
     @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
         setNomalStateToPurchaseButtonsFromConfirmation()
-        
+
         let data = inAppPurchases[button.tag]
         if let wiki = data.wiki {
             Utils.showAttributedAlert(text: wiki,
                                       textAlignment: data.wikiTextAlignment,
                                       alert: showAlert(title: data.title, message: nil, buttonTitles: [Utils.loc("OKBUTTON")], highlightedButtonIndex: 0))
         }
-        
+
         delegate?.accessoryButtonTappedForRowWith?(inAppPurchase: data)
     }
-    
+
     @IBAction private func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
-            case .normal:
-                button.setButtonState(.confirmation, animated: true)
-            case .confirmation:
-                button.setButtonState(.progress, animated: true)
-                delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
-            case .progress:
-                break
-            @unknown default:
-                break
+        case .normal:
+            button.setButtonState(.confirmation, animated: true)
+        case .confirmation:
+            button.setButtonState(.progress, animated: true)
+            delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
+        case .progress:
+            break
+        @unknown default:
+            break
         }
     }
 }
