@@ -51,6 +51,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
     // MARK: - UITableView
 
+    public func tableView(_: UITableView, canFocusRowAt _: IndexPath) -> Bool {
+        return false
+    }
+
     public func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return cellHeight
     }
@@ -241,15 +245,15 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction private func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
-        case .normal:
-            button.setButtonState(.confirmation, animated: true)
-        case .confirmation:
-            button.setButtonState(.progress, animated: true)
-            delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
-        case .progress:
-            break
-        @unknown default:
-            break
+            case .normal:
+                button.setButtonState(.confirmation, animated: true)
+            case .confirmation:
+                button.setButtonState(.progress, animated: true)
+                delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
+            case .progress:
+                break
+            @unknown default:
+                break
         }
     }
 }

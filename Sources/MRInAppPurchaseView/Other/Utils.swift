@@ -39,7 +39,7 @@ class Utils {
 
         let attributedMessageText = NSMutableAttributedString(string: text, attributes: [
             .paragraphStyle: paragraphStyle,
-            .font: UIFont.systemFont(ofSize: 13.0)
+            .font: UIFont.systemFont(ofSize: 13.0),
         ])
 
         alert.setValue(attributedMessageText, forKey: "attributedMessage")

@@ -34,20 +34,20 @@ open class InAppPurchaseData: NSObject, NSCoding {
     }
 
     public required init?(coder aDecoder: NSCoder) {
-        self.id = aDecoder.decodeObject(forKey: "id") as! String
-        self.icon = UIImage(data: aDecoder.decodeObject(forKey: "icon") as! Data)!
-        self.title = aDecoder.decodeObject(forKey: "title") as! String
-        self.wiki = aDecoder.decodeObject(forKey: "wiki") as? String
-        self.purchaseButtonTitle = aDecoder.decodeObject(forKey: "purchaseButtonTitle") as! String
-        self.isPurchasedDisable = aDecoder.decodeObject(forKey: "isPurchasedDisable") as! Bool
+        id = aDecoder.decodeObject(forKey: "id") as! String
+        icon = UIImage(data: aDecoder.decodeObject(forKey: "icon") as! Data)!
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        wiki = aDecoder.decodeObject(forKey: "wiki") as? String
+        purchaseButtonTitle = aDecoder.decodeObject(forKey: "purchaseButtonTitle") as! String
+        isPurchasedDisable = aDecoder.decodeObject(forKey: "isPurchasedDisable") as! Bool
     }
 
     public func encode(with encoder: NSCoder) {
-        encoder.encode(self.id, forKey: "id")
-        encoder.encode(self.icon.compressedData(), forKey: "icon")
-        encoder.encode(self.title, forKey: "title")
-        encoder.encode(self.wiki, forKey: "wiki")
-        encoder.encode(self.purchaseButtonTitle, forKey: "purchaseButtonTitle")
-        encoder.encode(self.isPurchasedDisable, forKey: "isPurchasedDisable")
+        encoder.encode(id, forKey: "id")
+        encoder.encode(icon.compressedData(), forKey: "icon")
+        encoder.encode(title, forKey: "title")
+        encoder.encode(wiki, forKey: "wiki")
+        encoder.encode(purchaseButtonTitle, forKey: "purchaseButtonTitle")
+        encoder.encode(isPurchasedDisable, forKey: "isPurchasedDisable")
     }
 }
