@@ -246,8 +246,10 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     @IBAction private func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
             case .normal:
+                Utils.vibrate(style: .light)
                 button.setButtonState(.confirmation, animated: true)
             case .confirmation:
+                Utils.vibrate(style: .medium)
                 button.setButtonState(.progress, animated: true)
                 delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
             case .progress:

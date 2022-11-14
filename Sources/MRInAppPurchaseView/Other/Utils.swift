@@ -46,4 +46,12 @@ class Utils {
 
         return alert
     }
+
+    /// Generate an haptic feedback with style
+    /// - Parameter style: style of the feedback
+    static func vibrate(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
+    }
 }
