@@ -135,16 +135,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
 
-    public func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
-        setNomalStateToPurchaseButtonsFromConfirmation()
-    }
-
-    // MARK: - UIScrollView
-
-    public func scrollViewDidScroll(_: UIScrollView) {
-        setNomalStateToPurchaseButtonsFromConfirmation()
-    }
-
     // MARK: - Public functions
 
     open func setInAppPurchases(_ inAppPurchases: [InAppPurchaseData]) {
@@ -231,8 +221,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - IBActions
 
     @IBAction private func inAppInfoButtonTapped(_ button: UIButton) {
-        setNomalStateToPurchaseButtonsFromConfirmation()
-
         let data = inAppPurchases[button.tag]
         if let wiki = data.wiki {
             Utils.showAttributedAlert(text: wiki,
