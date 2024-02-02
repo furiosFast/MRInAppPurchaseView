@@ -114,9 +114,6 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = Utils.locFromBundle("CONFIRM").uppercased()
-        if selectedButtons.has(key: inAppPurchase.tag) {
-            inAppPurchase.setButtonState(selectedButtons[inAppPurchase.tag]!, animated: false)
-        }
         accessoryView.addArrangedSubview(inAppPurchase)
 
         // accessoryView
@@ -138,6 +135,14 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.separatorInset = UIEdgeInsets(top: 0, left: 59, bottom: 0, right: 0)
         return cell
     }
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if selectedButtons.has(key: button.tag) {
+                button.setButtonState(selectedButtons[button.tag]!, animated: false)
+            }
+        }
+    }
 
     // MARK: - Public functions
 
@@ -146,15 +151,15 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         reloadData()
     }
     
-    open func setNormalStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
-        for button in tableView.subviews(ofType: PurchaseButton.self) {
-            if button.accessibilityIdentifier == inAppPurchase.id {
-                button.setButtonState(PurchaseButtonState.normal, animated: true)
-                selectedButtons.removeValue(forKey: button.tag)
-                break
-            }
-        }
-    }
+//    open func setNormalStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
+//        for button in tableView.subviews(ofType: PurchaseButton.self) {
+//            if button.accessibilityIdentifier == inAppPurchase.id {
+//                button.setButtonState(PurchaseButtonState.normal, animated: true)
+//                selectedButtons.removeValue(forKey: button.tag)
+//                break
+//            }
+//        }
+//    }
 
     open func setConfirmationStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
         for button in tableView.subviews(ofType: PurchaseButton.self) {
