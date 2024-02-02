@@ -135,8 +135,8 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         cell.separatorInset = UIEdgeInsets(top: 0, left: 59, bottom: 0, right: 0)
         return cell
     }
-    
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+    public func tableView(_ tableView: UITableView, willDisplay _: UITableViewCell, forRowAt _: IndexPath) {
         for button in tableView.subviews(ofType: PurchaseButton.self) {
             if selectedButtons.has(key: button.tag) {
                 button.setButtonState(selectedButtons[button.tag]!, animated: false)
@@ -150,7 +150,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         self.inAppPurchases = inAppPurchases
         reloadData()
     }
-    
+
 //    open func setNormalStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
 //        for button in tableView.subviews(ofType: PurchaseButton.self) {
 //            if button.accessibilityIdentifier == inAppPurchase.id {
