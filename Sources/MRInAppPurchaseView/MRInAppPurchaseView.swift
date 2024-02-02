@@ -26,6 +26,7 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
 
     private var tableView = UITableView()
     private var inAppPurchases: [InAppPurchaseData] = []
+    private var selectedButtons: [Int: PurchaseButtonState] = [:] // [indexPath.row: state]
     private var cellBackgrounColor: UIColor?
     private var cellTitleFont: UIFont?
     private var cellHeight: CGFloat = (UIDevice.current.userInterfaceIdiom == .phone ? 49 : 57)
@@ -113,6 +114,9 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         inAppPurchase.confirmationColor = .systemGreen
         inAppPurchase.normalTitle = data.purchaseButtonTitle.uppercased()
         inAppPurchase.confirmationTitle = Utils.locFromBundle("CONFIRM").uppercased()
+        if selectedButtons.has(key: inAppPurchase.tag) {
+            inAppPurchase.setButtonState(selectedButtons[inAppPurchase.tag]!, animated: false)
+        }
         accessoryView.addArrangedSubview(inAppPurchase)
 
         // accessoryView
@@ -141,49 +145,51 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
         self.inAppPurchases = inAppPurchases
         reloadData()
     }
+    
+    open func setNormalStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if button.accessibilityIdentifier == inAppPurchase.id {
+                button.setButtonState(PurchaseButtonState.normal, animated: true)
+                selectedButtons.removeValue(forKey: button.tag)
+                break
+            }
+        }
+    }
 
     open func setConfirmationStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
-        for view in tableView.subviewsRecursive() {
-            if view is PurchaseButton {
-                let inAppButton = view as! PurchaseButton
-                if view.accessibilityIdentifier == inAppPurchase.id {
-                    inAppButton.setButtonState(PurchaseButtonState.confirmation, animated: true)
-                    break
-                }
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if button.accessibilityIdentifier == inAppPurchase.id {
+                button.setButtonState(PurchaseButtonState.confirmation, animated: true)
+                selectedButtons[button.tag] = .confirmation
+                break
             }
         }
     }
 
     open func setProgressStateToPurchase(_ inAppPurchase: InAppPurchaseData) {
-        for view in tableView.subviewsRecursive() {
-            if view is PurchaseButton {
-                let inAppButton = view as! PurchaseButton
-                if view.accessibilityIdentifier == inAppPurchase.id {
-                    inAppButton.setButtonState(PurchaseButtonState.progress, animated: true)
-                    break
-                }
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if button.accessibilityIdentifier == inAppPurchase.id {
+                button.setButtonState(PurchaseButtonState.progress, animated: true)
+                selectedButtons[button.tag] = .progress
+                break
             }
         }
     }
 
     open func setNomalStateToPurchaseButtonsFromConfirmation() {
-        for view in tableView.subviewsRecursive() {
-            if view is PurchaseButton {
-                let inAppButton = view as! PurchaseButton
-                if inAppButton.buttonState == .confirmation {
-                    inAppButton.setButtonState(PurchaseButtonState.normal, animated: true)
-                }
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if button.buttonState == .confirmation {
+                button.setButtonState(PurchaseButtonState.normal, animated: true)
+                selectedButtons.removeValue(forKey: button.tag)
             }
         }
     }
 
     open func setNomalStateToPurchaseButtonsFromProgress() {
-        for view in tableView.subviewsRecursive() {
-            if view is PurchaseButton {
-                let inAppButton = view as! PurchaseButton
-                if inAppButton.buttonState == .progress {
-                    inAppButton.setButtonState(PurchaseButtonState.normal, animated: true)
-                }
+        for button in tableView.subviews(ofType: PurchaseButton.self) {
+            if button.buttonState == .progress {
+                button.setButtonState(PurchaseButtonState.normal, animated: true)
+                selectedButtons.removeValue(forKey: button.tag)
             }
         }
     }
@@ -234,12 +240,16 @@ open class MRInAppPurchaseView: UIViewController, UITableViewDelegate, UITableVi
     @IBAction private func inAppPurchaseButtonTapped(_ button: PurchaseButton) {
         switch button.buttonState {
             case .normal:
+                setNomalStateToPurchaseButtonsFromConfirmation()
                 Utils.vibrate(style: .light)
                 button.setButtonState(.confirmation, animated: true)
+                selectedButtons[button.tag] = .confirmation
             case .confirmation:
+                setNomalStateToPurchaseButtonsFromConfirmation()
                 Utils.vibrate(style: .medium)
                 button.setButtonState(.progress, animated: true)
                 delegate?.inAppPurchaseButtonTapped(inAppPurchase: inAppPurchases[button.tag])
+                selectedButtons[button.tag] = .progress
             case .progress:
                 break
             @unknown default:
