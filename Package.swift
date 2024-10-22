@@ -13,7 +13,7 @@ let package = Package(
         .library(name: "MRInAppPurchaseView", targets: ["MRInAppPurchaseView"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "6.0.0"),
+        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "7.0.0"),
     ],
     targets: [
         .target(name: "MRInAppPurchaseView", dependencies: [
